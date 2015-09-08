@@ -12,7 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MainClass extends Applet implements Runnable, KeyListener{
+public class MainClass extends Applet implements KeyListener{
 
 	private static final long serialVersionUID = 1L;
 	private static int sleeptime = 17; 
@@ -49,37 +49,27 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 		bg2 = new Background(2160, 0);
 		player = new MainCharac();
 		enemy = new EnemyTest(340, 360);
-		loadMap("data/map1.txt");
-		Thread thread = new Thread(this);
-		thread.start();
-	}
-	
-	@Override
-	public void stop() {
-		// TODO
-	}
-	
-	@Override
-	public void destroy() {
-		// TODO
-	}
-	
-	@Override
-	public void run() {
-		while(true) {
-			player.update();
-			updateTiles();
-			enemy.update();
-			bg1.update();
-			bg2.update();
-			repaint();
-			try {
-				Thread.sleep(sleeptime);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+		Thread thread = new Thread(new Runnable(){
+			public void run() {
+				while(true) {
+					player.update();
+					updateTiles();
+					enemy.update();
+					bg1.update();
+					bg2.update();
+					repaint();
+					try {
+						Thread.sleep(sleeptime);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
 			}
-		}
+		});
+		thread.start();
+		loadMap("data/mapQuick.txt");
 	}
+
 	
 	@Override
 	public void update(Graphics g) {
@@ -104,19 +94,12 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 		g.drawImage(enemy.animation.getSprite(), enemy.getCenterX(), enemy.getCenterY(), this);
 	}
 	
-	private void updateTiles() {
-		for (int i = 0; i < tilearray.size(); i++) {
-			Tile t = (Tile) tilearray.get(i);
-			t.update();
-		}
-	}
+	//private static ArrayList pressedKeys;
+	private static final int MAX_INTERVAL = 200;
+	private static final int MAX_PRESS = 100;
+	private long pressed = 0;
+	private long interval = 0;
 	
-	private void paintTiles(Graphics g) {
-		for (int i = 0; i < tilearray.size(); i++) {
-			Tile t = (Tile) tilearray.get(i);
-			g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY(), this);
-		}
-	}
 	@Override
 	public void keyPressed(KeyEvent e) {
 		switch (e.getKeyCode()) {
@@ -131,7 +114,11 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 			}
 			break;
 		case KeyEvent.VK_LEFT:
-			System.out.println("running left");
+			pressed = System.currentTimeMillis();
+			if (!player.isTapLeft() && System.currentTimeMillis() - interval > MAX_INTERVAL) {
+				System.out.println("Interval: " + (System.currentTimeMillis() - interval));
+				player.moveLeft();
+			}
 			break;
 		case KeyEvent.VK_RIGHT:
 			player.moveRight();
@@ -153,7 +140,20 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 			player.setDucked(false);
 			break;
 		case KeyEvent.VK_LEFT:
-			System.out.println("stop running left");
+			if(System.currentTimeMillis() - pressed > 50 && System.currentTimeMillis() - pressed < MAX_PRESS) {
+				if (player.isTapLeft() && System.currentTimeMillis() - interval < MAX_INTERVAL) {
+					System.out.println("taptap");
+					player.tapLeft();
+				}
+				System.out.println("tap");
+				player.setTapLeft(true);
+				player.setMovingLeft(false);
+				interval = System.currentTimeMillis();
+			} else {
+				player.setTapLeft(false);
+				player.setMovingLeft(false);
+			}
+			player.stop();
 			break;
 		case KeyEvent.VK_RIGHT:
 			player.setMovingRight(false);
@@ -164,27 +164,16 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 		}
 	}
 	
-	private static ArrayList pressedKeys;
-	private static final int MAX_INTERVAL = 250;
-	private static int interval;
+	@Override
+	public void keyTyped(KeyEvent e) {	}
 	
 	@Override
-	public void keyTyped(KeyEvent e) {
-		switch (e.getKeyCode()) {
-		case KeyEvent.VK_UP:
-			break;
-		case KeyEvent.VK_DOWN:
-			break;
-		case KeyEvent.VK_LEFT:
-			player.tapLeft();
-			break;
-		case KeyEvent.VK_RIGHT:
-			break;
-		case KeyEvent.VK_SPACE:
-			break;
-		}
-	}
-		
+	public void stop() { /* TODO */	}
+	
+	@Override
+	public void destroy() {	/* TODO */	}
+	
+	/* Tiling functions */
 	private void loadMap(String filename) {
 	        int height = 0;
 	        File file = new File(filename);
@@ -196,7 +185,9 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 		        	System.out.println(line);
 		        	if (!line.startsWith("!")) {
 		        		for (int i = 0; i < line.length(); i++) {
-		        			tilearray.add(new Tile(i, height, line.charAt(i)));
+		        			if (line.charAt(i) != 'O' || line.charAt(i) != ' ') {
+		        				tilearray.add(new Tile(i, height, line.charAt(i)));
+		        			}
 		        		}
 		        		height++;
 		        	}
@@ -207,6 +198,21 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 	        }
         }
 	
+	private void updateTiles() {
+		for (int i = 0; i < tilearray.size(); i++) {
+			Tile t = (Tile) tilearray.get(i);
+			t.update();
+		}
+	}
+	
+	private void paintTiles(Graphics g) {
+		for (int i = 0; i < tilearray.size(); i++) {
+			Tile t = (Tile) tilearray.get(i);
+			g.drawImage(t.getTileImage(), t.getTileX(), t.getTileY(), this);
+		}
+	}
+	
+	/* Getters and Setters */
 	public static Background getBg1() {
 		return bg1;
 	}
@@ -218,6 +224,7 @@ public class MainClass extends Applet implements Runnable, KeyListener{
 	public static int getScreenWidth() {
 		return WIDTH;
 	}
+	
 	public static int getScreenHeight() {
 		return HEIGHT;
 	}

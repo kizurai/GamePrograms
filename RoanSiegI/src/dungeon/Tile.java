@@ -12,7 +12,7 @@ public class Tile {
 	public Image tileimg;
 	private String spriteSheet = "TileSet1";
 	
-	private MainCharac player = MainClass.getPlayer();
+	//private MainCharac player = MainClass.getPlayer();
 	private Background bg = MainClass.getBg1();
 	private BufferedImage[] tiling = {Sprite.getSprite(offx, offy, width, height, 0, 0, spriteSheet),
 									  Sprite.getSprite(offx, offy, width, height, 1, 0, spriteSheet), 

@@ -57,6 +57,7 @@ public class MainCharac {
 	private boolean jump = false;
 	private boolean ducked = false;
 	private boolean moveRight = false;
+	private boolean moveLeft = false;
 	private boolean tapLeft = false;
 	
 	public MainCharac() {
@@ -117,6 +118,13 @@ public class MainCharac {
 		}
 	}
 
+	public void tapLeft() {
+		animation = walkLeft;
+		animation.start();
+		centX -= 15;
+		setTapLeft(false);
+		animation.stop();
+	}
 	public void stop() {
 		if (isMovingRight() == false && isMovingLeft() == false) {
 			spdX = 0;
@@ -141,68 +149,27 @@ public class MainCharac {
 		Projectile p = new Projectile(centX + 50, centY - 25);
 		projectiles.add(p);
 	}
-	public int getCenterX() {
-		return centX;
-	}
 
-	public int getCenterY() {
-		return centY;
-	}
-
-	public boolean isJump() {
-		return jump;
-	}
-
-	public int getSpdX() {
-		return spdX;
-	}
-
-	public int getSpdY() {
-		return spdY;
-	}
-
-	public void setCenterX(int centX) {
-		this.centX = centX;
-	}
-
-	public void setCenterY(int centY) {
-		this.centY = centY;
-	}
-
-	public void setJump(boolean jump) {
-		this.jump = jump;
-	}
-
-	public void setSpdX(int spdX) {
-		this.spdX = spdX;
-	}
-
-	public void setSpdY(int spdY) {
-		this.spdY = spdY;
-	}
-	public int getHeight() {
-		return tiley;
-	}
-	public boolean isDucked() {
-		return ducked;
-	}
-	public void setDucked(boolean ducked) {
-		this.ducked = ducked;
-	}
-	public void setMovingRight(boolean moving) {
-		this.moveRight = moving;
-	}
-	public boolean isMovingRight() {
-		return moveRight;
-	}
-	public void setMovingLeft(boolean moving) {
-		this.tapLeft = moving;
-	}
-	public boolean isMovingLeft() {
-		return tapLeft;
-	}
+	public boolean isJump() { return jump; }
+	public void setJump(boolean jump) { this.jump = jump; }
+	public boolean isDucked() { return ducked; }
+	public void setDucked(boolean ducked) { this.ducked = ducked; }
+	public void setMovingRight(boolean moving) { this.moveRight = moving; }
+	public boolean isMovingRight() { return moveRight; }
+	public void setMovingLeft(boolean moving) { this.moveLeft = moving; }
+	public boolean isMovingLeft() { return moveLeft; }
+	public void setTapLeft(boolean tap) { this.tapLeft = tap; }
+	public boolean isTapLeft() { return tapLeft; }
 	
-	public ArrayList<Projectile> getProjectiles() {
-		return projectiles;
-	}
+	public int getSpdX() { return spdX; }
+	public int getSpdY() { return spdY;	}
+	public void setSpdX(int spdX) { this.spdX = spdX; }
+	public void setSpdY(int spdY) { this.spdY = spdY; }
+	public int getHeight() { return tiley; }
+	public int getCenterX() { return centX;	}
+	public int getCenterY() { return centY;	}
+	public void setCenterX(int centX) {	this.centX = centX;	}
+	public void setCenterY(int centY) {	this.centY = centY;	}
+	
+	public ArrayList<Projectile> getProjectiles() { return projectiles;	}
 }
