@@ -1,4 +1,4 @@
-package dungeon;
+package com.barghest.games.roan;
 
 public class Projectile {
 	private int x, y, spdx;

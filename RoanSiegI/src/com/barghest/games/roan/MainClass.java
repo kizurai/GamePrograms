@@ -1,4 +1,4 @@
-package dungeon;
+package com.barghest.games.roan;
 
 import java.applet.Applet;
 import java.awt.Color;
@@ -96,7 +96,7 @@ public class MainClass extends Applet implements KeyListener{
 	
 	//private static ArrayList pressedKeys;
 	private static final int MAX_INTERVAL = 200;
-	private static final int MAX_PRESS = 100;
+	private static final int MAX_PRESS = 90;
 	private long pressed = 0;
 	private long interval = 0;
 	
@@ -115,10 +115,10 @@ public class MainClass extends Applet implements KeyListener{
 			break;
 		case KeyEvent.VK_LEFT:
 			pressed = System.currentTimeMillis();
-			if (!player.isTapLeft() && System.currentTimeMillis() - interval > MAX_INTERVAL) {
-				System.out.println("Interval: " + (System.currentTimeMillis() - interval));
-				player.moveLeft();
+			if (System.currentTimeMillis() - interval > MAX_INTERVAL) {
+				player.setTapLeft(false);
 			}
+			player.moveLeft();
 			break;
 		case KeyEvent.VK_RIGHT:
 			player.moveRight();
@@ -140,19 +140,21 @@ public class MainClass extends Applet implements KeyListener{
 			player.setDucked(false);
 			break;
 		case KeyEvent.VK_LEFT:
-			if(System.currentTimeMillis() - pressed > 50 && System.currentTimeMillis() - pressed < MAX_PRESS) {
+			System.out.println(System.currentTimeMillis() - pressed);
+			System.out.println("Interval: " + (System.currentTimeMillis() - interval));
+			if(System.currentTimeMillis() - pressed > 30 && System.currentTimeMillis() - pressed < MAX_PRESS) {
 				if (player.isTapLeft() && System.currentTimeMillis() - interval < MAX_INTERVAL) {
 					System.out.println("taptap");
 					player.tapLeft();
+				} else {
+					System.out.println("tap");
+					player.setTapLeft(true);
 				}
-				System.out.println("tap");
-				player.setTapLeft(true);
-				player.setMovingLeft(false);
 				interval = System.currentTimeMillis();
 			} else {
 				player.setTapLeft(false);
-				player.setMovingLeft(false);
 			}
+			player.setMovingLeft(false);
 			player.stop();
 			break;
 		case KeyEvent.VK_RIGHT:

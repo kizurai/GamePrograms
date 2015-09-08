@@ -1,4 +1,4 @@
-package dungeon;
+package com.barghest.games.roan;
 
 public class Enemy {
 	private int maxHealth, currentHealth, power, spdx, centx, centy;

@@ -1,4 +1,4 @@
-package dungeon;
+package com.barghest.games.roan;
 
 import java.util.ArrayList;
 import java.util.HashMap;

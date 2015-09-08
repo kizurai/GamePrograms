@@ -1,4 +1,4 @@
-package dungeon;
+package com.barghest.games.roan;
 
 import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
@@ -54,11 +54,15 @@ public class MainCharac {
 	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static Rectangle rect = new Rectangle(0, 0, 0, 0);
 	
+	private String state = "IDLE";
 	private boolean jump = false;
 	private boolean ducked = false;
 	private boolean moveRight = false;
 	private boolean moveLeft = false;
 	private boolean tapLeft = false;
+	private long IntervalTime = 0;
+	private int dodgeLeftTime = 300;
+	
 	
 	public MainCharac() {
 		animation.start();
@@ -121,19 +125,23 @@ public class MainCharac {
 	public void tapLeft() {
 		animation = walkLeft;
 		animation.start();
-		centX -= 15;
-		setTapLeft(false);
-		animation.stop();
+		spdX = -MOVESPD * 8;
+		state = "JUMPLEFT";
+		IntervalTime = System.currentTimeMillis();
 	}
 	public void stop() {
-		if (isMovingRight() == false && isMovingLeft() == false) {
+		if (System.currentTimeMillis() - IntervalTime > dodgeLeftTime && state == "JUMPLEFT") {
 			spdX = 0;
+			setTapLeft(false);
 			animation = standing;
 		}
-		if (isMovingRight() == true && isMovingLeft() == false) {
+		if (isMovingRight() == false && isMovingLeft() == false) {
+			spdX = 0;
+			state = "IDLE";
+			animation = standing;
+		} else if (isMovingRight() == true && isMovingLeft() == false) {
 			moveRight();
-		}
-		if (isMovingRight() == false && isMovingLeft() == true) {
+		} else if (isMovingRight() == false && isMovingLeft() == true) {
 			moveLeft();
 		}
 	}

@@ -1,4 +1,4 @@
-package dungeon;
+package com.barghest.games.roan;
 
 public class Background {
 	private int bgx, bgy, spdx;
