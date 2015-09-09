@@ -1,6 +1,7 @@
 package com.barghest.games.roan;
 
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
@@ -53,49 +54,79 @@ public class MainCharac {
 	
 	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static Rectangle rect = new Rectangle(0, 0, 0, 0);
+	public static Rectangle rect2 = new Rectangle(0, 0, 0, 0);
 	
-	private String state = "IDLE";
+	private String state;
 	private boolean jump = false;
 	private boolean ducked = false;
 	private boolean moveRight = false;
 	private boolean moveLeft = false;
 	private boolean tapLeft = false;
 	private long IntervalTime = 0;
-	private int dodgeLeftTime = 300;
+	private int dodgeLeftTime = 500;
 	
 	
 	public MainCharac() {
 		animation.start();
+		state = "IDLE";
+	}
+	
+	public void checkState() {
+		switch (state) {
+		case "IDLE":
+			//System.out.println("idle");
+			animation = standing;
+			break;
+		case "WALKRIGHT":
+			//System.out.println("walk right");
+			animation = walkRight;
+			break;
+		case "WALKLEFT":
+			//System.out.println("walk left");
+			animation = walkLeft;
+			break;
+		case "JUMPLEFT":
+			System.out.println(IntervalTime + " jump left");
+			animation = walkLeft;
+			break;
+		}
+		animation.start();
 	}
 	
 	public void update() {
-		if (animation == standing || animation == walkRight) {
-			animation.update();
-		}
+		checkState();
+		animation.update();
 		
 		if (spdX<0) {
 			centX += spdX;
 		}
-		
 		if (spdX == 0 || spdX < 0) {
 			bg1.setSpdx(0);
 			bg2.setSpdx(0);
 		}
-		if (centX<=SCREEN_WIDTH / 4 && spdX > 0) {
-			centX += spdX;
+		
+		if (System.currentTimeMillis() - IntervalTime > dodgeLeftTime && isTapLeft()) {
+			spdX = 0;
+			setTapLeft(false);
+			state = "IDLE";
+			System.out.println("stop dodging");
+		} else if (isTapLeft()) {
+			
+		} else {
+			if (centX<=SCREEN_WIDTH / 4 && spdX > 0) {
+				centX += spdX;
+			} else if (centX>=SCREEN_WIDTH / 4 && spdX < 0) {
+				centX -= spdX;
+			}
+			
+			if (spdX > 0 && centX > SCREEN_WIDTH / 4) {
+				bg1.setSpdx(-MOVESPD/5);
+				bg2.setSpdx(-MOVESPD/5);
+			} else if (spdX < 0 && centX < SCREEN_WIDTH / 4) {
+				bg1.setSpdx(MOVESPD/5);
+				bg2.setSpdx(MOVESPD/5);
+			}
 		}
-		if (spdX > 0 && centX > SCREEN_WIDTH / 4) {
-			bg1.setSpdx(-MOVESPD/5);
-			bg2.setSpdx(-MOVESPD/5);
-		}
-		if (centX>=SCREEN_WIDTH / 4 && spdX < 0) {
-			centX -= spdX;
-		}
-		if (spdX < 0 && centX < SCREEN_WIDTH / 4) {
-			bg1.setSpdx(MOVESPD/5);
-			bg2.setSpdx(MOVESPD/5);
-		}
-
 		if (jump == true) {
 			spdY += 1;
 		}
@@ -103,46 +134,43 @@ public class MainCharac {
 		if(centX + spdX <= SCREEN_WIDTH / 5) {
 			centX = SCREEN_WIDTH / 5 + 1;
 		}
+		rect.setRect(centX, centY, 68, 63);
+		rect2.setRect(rect.getX(), rect.getY() + 63, 68, 64);
 	}
 	
 	public void moveRight() {
-		if (ducked == false) {
+		if (state == "IDLE") {
 			setMovingRight(true);
 			spdX = MOVESPD;
-			animation = walkRight;
-			animation.start();
+			state = "WALKRIGHT";
 		}
 	}
 	public void moveLeft() {
-		if (ducked == false) {
+		if (state == "IDLE") {
 			setMovingLeft(true);
 			spdX = -MOVESPD;
-			animation = walkLeft;
-			animation.start();
+			state = "WALKLEFT";
 		}
 	}
 
 	public void tapLeft() {
-		animation = walkLeft;
-		animation.start();
-		spdX = -MOVESPD * 8;
+		System.out.println("Tapped Left!!!");
+		setTapLeft(true);
+		spdX = -MOVESPD;
 		state = "JUMPLEFT";
 		IntervalTime = System.currentTimeMillis();
 	}
 	public void stop() {
-		if (System.currentTimeMillis() - IntervalTime > dodgeLeftTime && state == "JUMPLEFT") {
-			spdX = 0;
-			setTapLeft(false);
-			animation = standing;
-		}
-		if (isMovingRight() == false && isMovingLeft() == false) {
+		if (!isMovingRight() && !isMovingLeft() && !isTapLeft()) {
 			spdX = 0;
 			state = "IDLE";
-			animation = standing;
-		} else if (isMovingRight() == true && isMovingLeft() == false) {
+			System.out.println("stop and idle");
+		} else if (isMovingRight() && !isMovingLeft()) {
+			System.out.println("stop and move right");
 			moveRight();
-		} else if (isMovingRight() == false && isMovingLeft() == true) {
+		} else if (!isMovingRight() && isMovingLeft()) {
 			moveLeft();
+			System.out.println("stop and move left");
 		}
 	}
 	

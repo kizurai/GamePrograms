@@ -25,12 +25,17 @@ public class MainClass extends Applet implements KeyListener{
 	private Graphics second;
 	private URL base;
 	
+	private boolean tapUp = false;
+	private boolean tapLeft = false;
+	private boolean tapRight = false;
+	private boolean tapDown = false;
+	
 	private ArrayList<Tile> tilearray = new ArrayList<Tile>();
 	
 	@Override
 	public void init() {
 		setSize(WIDTH, HEIGHT);
-		setBackground(Color.BLACK);
+		setBackground(Color.BLUE);
 		setFocusable(true);
 		addKeyListener(this);
 		Frame frame = (Frame) this.getParent().getParent();
@@ -90,6 +95,8 @@ public class MainClass extends Applet implements KeyListener{
 		g.drawImage(background, bg1.getBgx(), bg1.getBgy(), this);
 		g.drawImage(background, bg2.getBgx(), bg2.getBgy(), this);
 		paintTiles(g);
+		g.drawRect((int)player.rect.getX(), (int)player.rect.getY(), (int)player.rect.getWidth(), (int)player.rect.getHeight());
+		g.drawRect((int)player.rect2.getX(), (int)player.rect2.getY(), (int)player.rect2.getWidth(), (int)player.rect2.getHeight());
 		g.drawImage(player.animation.getSprite(), player.getCenterX(), player.getCenterY(), this);
 		g.drawImage(enemy.animation.getSprite(), enemy.getCenterX(), enemy.getCenterY(), this);
 	}
@@ -115,8 +122,9 @@ public class MainClass extends Applet implements KeyListener{
 			break;
 		case KeyEvent.VK_LEFT:
 			pressed = System.currentTimeMillis();
-			if (System.currentTimeMillis() - interval > MAX_INTERVAL) {
-				player.setTapLeft(false);
+			if (!player.isTapLeft() && System.currentTimeMillis() - interval > MAX_INTERVAL) {
+				tapLeft = false;
+				System.out.println("tap false 1");
 			}
 			player.moveLeft();
 			break;
@@ -143,16 +151,17 @@ public class MainClass extends Applet implements KeyListener{
 			System.out.println(System.currentTimeMillis() - pressed);
 			System.out.println("Interval: " + (System.currentTimeMillis() - interval));
 			if(System.currentTimeMillis() - pressed > 30 && System.currentTimeMillis() - pressed < MAX_PRESS) {
-				if (player.isTapLeft() && System.currentTimeMillis() - interval < MAX_INTERVAL) {
+				if (tapLeft && System.currentTimeMillis() - interval < MAX_INTERVAL) {
 					System.out.println("taptap");
 					player.tapLeft();
 				} else {
 					System.out.println("tap");
-					player.setTapLeft(true);
+					tapLeft = true;
 				}
 				interval = System.currentTimeMillis();
 			} else {
-				player.setTapLeft(false);
+				tapLeft = false;
+				System.out.println("tap false 2");
 			}
 			player.setMovingLeft(false);
 			player.stop();
