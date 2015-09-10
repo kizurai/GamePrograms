@@ -1,6 +1,7 @@
 package com.barghest.games.roan;
 
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.image.BufferedImage;
 
 public class Tile {
@@ -11,8 +12,9 @@ public class Tile {
 	private int offy = 0;
 	public Image tileimg;
 	private String spriteSheet = "TileSet1";
+	private Rectangle r;
 	
-	//private MainCharac player = MainClass.getPlayer();
+	private MainCharac player = MainClass.getPlayer();
 	private Background bg = MainClass.getBg1();
 	private BufferedImage[] tiling = {Sprite.getSprite(offx, offy, width, height, 0, 0, spriteSheet),
 									  Sprite.getSprite(offx, offy, width, height, 1, 0, spriteSheet), 
@@ -24,16 +26,11 @@ public class Tile {
 									  Sprite.getSprite(offx, offy, width, height, 1, 2, spriteSheet),
 									  Sprite.getSprite(offx, offy, width, height, 2, 2, spriteSheet)};
 	
-	public Tile(int x, int y, char typechar) {
+	public Tile(int x, int y, int typeInt) {
 		tilex = x * width;
 		tiley = y * height;
-		type = Character.getNumericValue(typechar);
+		type = typeInt;
 		
-		if (typechar == 'S') {
-			MainClass.getPlayer().setCenterX(tilex);
-			MainClass.getPlayer().setCenterY(tiley - (MainClass.getPlayer().getHeight() - height));
-		}
-
 		if (type == 7) {
 			tileimg = tiling[0];
 		} else if (type == 8) {
@@ -52,14 +49,32 @@ public class Tile {
 			tileimg = tiling[7];
 		} else if (type == 3) {
 			tileimg = tiling[8];
-		}
+		} else { type = 10; }
+		r = new Rectangle();
 	}
 	
 	public void update() {
 		spdx = bg.getSpdx() * 5;
 		tilex += spdx;
+        r.setBounds(tilex, tiley, width, height);
+        
+        if (type != 10){
+            checkVerticalCollision(player.getRect1());
+        }
 	}
 	
+   public void checkVerticalCollision(Rectangle playerCol){
+    	/*if (playerCol.intersects(r)){
+    		System.out.println("collision with player");
+    	}*/
+    	if (playerCol.intersects(r) && (type == 8 || type == 7 || type == 9)) {
+    		System.out.println("collision with ground");
+    		player.setJump(false);
+    		player.setSpdY(0);
+    		player.setCenterY(player.getCenterY() - 1);
+    	}
+    }
+	   
 	public int getTileX() {
 		return tilex;
 	}

@@ -1,13 +1,13 @@
 package com.barghest.games.roan;
 
 import java.awt.Rectangle;
-import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 
 public class MainCharac {
 	final int JUMPSPD = -15;
 	final int MOVESPD = 5;
+	private int BGSPD = 0;
 	static int SCREEN_WIDTH = MainClass.getScreenWidth();
 	private int centX = 0;
 	private int centY = 0;
@@ -54,7 +54,6 @@ public class MainCharac {
 	
 	private ArrayList<Projectile> projectiles = new ArrayList<Projectile>();
 	public static Rectangle rect = new Rectangle(0, 0, 0, 0);
-	public static Rectangle rect2 = new Rectangle(0, 0, 0, 0);
 	
 	private String state;
 	private boolean jump = false;
@@ -62,8 +61,11 @@ public class MainCharac {
 	private boolean moveRight = false;
 	private boolean moveLeft = false;
 	private boolean tapLeft = false;
+	private int jumpStart = 0;
+	private int jumpHeight = 50;
 	private long IntervalTime = 0;
-	private int dodgeLeftTime = 500;
+	private int dodgeLeftTime = 70;
+	private int minJumpTime = 30;
 	
 	
 	public MainCharac() {
@@ -74,19 +76,16 @@ public class MainCharac {
 	public void checkState() {
 		switch (state) {
 		case "IDLE":
-			//System.out.println("idle");
 			animation = standing;
 			break;
 		case "WALKRIGHT":
-			//System.out.println("walk right");
 			animation = walkRight;
 			break;
 		case "WALKLEFT":
-			//System.out.println("walk left");
 			animation = walkLeft;
 			break;
 		case "JUMPLEFT":
-			System.out.println(IntervalTime + " jump left");
+			System.out.println((System.currentTimeMillis() - IntervalTime) + " jump left");
 			animation = walkLeft;
 			break;
 		}
@@ -110,9 +109,11 @@ public class MainCharac {
 			setTapLeft(false);
 			state = "IDLE";
 			System.out.println("stop dodging");
+			BGSPD = MOVESPD/5;
 		} else if (isTapLeft()) {
-			
-		} else {
+			BGSPD = MOVESPD;
+		} else { BGSPD = MOVESPD/3; } 
+		
 			if (centX<=SCREEN_WIDTH / 4 && spdX > 0) {
 				centX += spdX;
 			} else if (centX>=SCREEN_WIDTH / 4 && spdX < 0) {
@@ -120,22 +121,30 @@ public class MainCharac {
 			}
 			
 			if (spdX > 0 && centX > SCREEN_WIDTH / 4) {
-				bg1.setSpdx(-MOVESPD/5);
-				bg2.setSpdx(-MOVESPD/5);
+				bg1.setSpdx(-BGSPD);
+				bg2.setSpdx(-BGSPD);
 			} else if (spdX < 0 && centX < SCREEN_WIDTH / 4) {
-				bg1.setSpdx(MOVESPD/5);
-				bg2.setSpdx(MOVESPD/5);
+				bg1.setSpdx(BGSPD);
+				bg2.setSpdx(BGSPD);
 			}
-		}
-		if (jump == true) {
-			spdY += 1;
-		}
+			
+	        // Updates Y Position
+			centY += spdY;
+	        if (jump) {
+	        	spdY = -1;
+	        } else {
+	        	spdY = 1;
+	        }
+	        System.out.println(centY + ", " + (jumpStart - jumpHeight));
+	        if (centY <= jumpStart - jumpHeight) {
+	        	jump = false;
+	        	System.out.println("hit jump limit");
+	        }
 		
 		if(centX + spdX <= SCREEN_WIDTH / 5) {
 			centX = SCREEN_WIDTH / 5 + 1;
 		}
-		rect.setRect(centX, centY, 68, 63);
-		rect2.setRect(rect.getX(), rect.getY() + 63, 68, 64);
+		rect.setRect(centX + 3, centY + 3, tilex - 3, tiley - 3);
 	}
 	
 	public void moveRight() {
@@ -156,28 +165,31 @@ public class MainCharac {
 	public void tapLeft() {
 		System.out.println("Tapped Left!!!");
 		setTapLeft(true);
-		spdX = -MOVESPD;
+		spdX = -MOVESPD * 2;
 		state = "JUMPLEFT";
 		IntervalTime = System.currentTimeMillis();
 	}
+	
+	public void jump() {
+		if (jump == false) {
+			//spdY = JUMPSPD;
+			jumpStart = centY;
+			jump = true;
+			state = "JUMP";
+			System.out.println("jumping");
+		}
+	}
+	
 	public void stop() {
 		if (!isMovingRight() && !isMovingLeft() && !isTapLeft()) {
 			spdX = 0;
 			state = "IDLE";
-			System.out.println("stop and idle");
 		} else if (isMovingRight() && !isMovingLeft()) {
 			System.out.println("stop and move right");
 			moveRight();
 		} else if (!isMovingRight() && isMovingLeft()) {
 			moveLeft();
 			System.out.println("stop and move left");
-		}
-	}
-	
-	public void jump() {
-		if (jump == false) {
-			spdY = JUMPSPD;
-			jump = true;
 		}
 	}
 
@@ -206,6 +218,7 @@ public class MainCharac {
 	public int getCenterY() { return centY;	}
 	public void setCenterX(int centX) {	this.centX = centX;	}
 	public void setCenterY(int centY) {	this.centY = centY;	}
+	public Rectangle getRect1() { return rect; }
 	
 	public ArrayList<Projectile> getProjectiles() { return projectiles;	}
 }
