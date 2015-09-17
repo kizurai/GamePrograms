@@ -59,6 +59,7 @@ public class Tile {
         r.setBounds(tilex, tiley, width, height);
         
         if (type != 10){
+        	player.setCenterY(player.getCenterY() + 1);
             checkVerticalCollision(player.getRect1());
         }
 	}

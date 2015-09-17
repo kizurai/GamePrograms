@@ -133,7 +133,7 @@ public class MainCharac {
 	        if (jump) {
 	        	spdY = -1;
 	        } else {
-	        	spdY = 1;
+	        	spdY = 0;
 	        }
 	        System.out.println(centY + ", " + (jumpStart - jumpHeight));
 	        if (centY <= jumpStart - jumpHeight) {

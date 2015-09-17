@@ -1,0 +1,27 @@
+package GameState;
+
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+
+public class Level1State extends GameState {
+	
+	public Level1State (GameStateManager gsm) {
+		this.gsm = gsm;
+	}
+	
+	public void init() {}
+	public void update() {}
+	private void draw() {
+		gsm.draw(g);
+	}
+	
+	private void drawToScreen() {
+	}
+
+	public void keyTyped (KeyEvent key) {}
+	public void keyPressed (KeyEvent key) {
+	}
+	
+	public void keyReleased (KeyEvent key) {
+	}
+}

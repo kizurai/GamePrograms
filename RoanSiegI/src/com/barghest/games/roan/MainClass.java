@@ -87,18 +87,16 @@ public class MainClass extends Applet implements KeyListener{
 		second.setColor(getForeground());
 		paint(second);
 		g.drawImage(img,0,0,this);
-		enemy.animation.update();
 	}
 	
 	@Override
 	public void paint(Graphics g) {
 		g.drawImage(background, bg1.getBgx(), bg1.getBgy(), this);
 		g.drawImage(background, bg2.getBgx(), bg2.getBgy(), this);
+		g.drawRect((int)player.getRect1().getX(), (int)player.getRect1().getY(), (int)player.getRect1().getWidth(), (int)player.getRect1().getHeight());
 		paintTiles(g);
 		g.drawImage(player.animation.getSprite(), player.getCenterX(), player.getCenterY(), this);
 		g.drawImage(enemy.animation.getSprite(), enemy.getCenterX(), enemy.getCenterY(), this);
-		g.drawRect((int)player.getRect1().getX(), (int)player.getRect1().getY(), (int)player.getRect1().getWidth(), (int)player.getRect1().getHeight());
-		//g.drawRect((int)player.getRect2().getX(), (int)player.getRect2().getY(), (int)player.getRect2().getWidth(), (int)player.getRect2().getHeight());
 	}
 	
 	//private static ArrayList pressedKeys;
