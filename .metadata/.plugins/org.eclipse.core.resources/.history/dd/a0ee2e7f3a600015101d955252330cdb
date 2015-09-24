@@ -14,9 +14,7 @@ public class Level1State extends GameState {
 	
 	public void init() {
 		tileMap = new TileMap(30);
-		tileMap.loadTiles("/Tilesets/TileSet1.png");
-		tileMap.loadMap("/Maps/mapQuick.txt");
-		tileMap.setPosition(0, 0);
+		tileMap.loadTiles("");
 	}
 	public void update() {}
 	public void draw(Graphics2D g) {}

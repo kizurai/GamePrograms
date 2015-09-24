@@ -25,10 +25,10 @@ public class MainClass extends Applet implements KeyListener{
 	private Graphics second;
 	private URL base;
 	
-	private boolean tapUp = false;
+	//private boolean tapUp = false;
 	private boolean tapLeft = false;
-	private boolean tapRight = false;
-	private boolean tapDown = false;
+	//private boolean tapRight = false;
+	//private boolean tapDown = false;
 	
 	private ArrayList<Tile> tilearray = new ArrayList<Tile>();
 	

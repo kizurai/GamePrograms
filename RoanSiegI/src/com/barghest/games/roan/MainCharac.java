@@ -65,7 +65,7 @@ public class MainCharac {
 	private int jumpHeight = 50;
 	private long IntervalTime = 0;
 	private int dodgeLeftTime = 70;
-	private int minJumpTime = 30;
+	//private int minJumpTime = 30;
 	
 	
 	public MainCharac() {
