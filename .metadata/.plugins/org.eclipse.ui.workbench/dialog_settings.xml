@@ -4,12 +4,14 @@
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_OVERWRITE_EXISTING_RESOURCES_ID"/>
 		<item value="false" key="WizardFileSystemResourceImportPage1.STORE_CREATE_CONTAINER_STRUCTURE_ID"/>
 		<list key="WizardFileSystemResourceImportPage1.STORE_SOURCE_NAMES_ID">
+			<item value="/home/sophy/Downloads/util/csv"/>
+			<item value="/home/sophy/Downloads/adventure"/>
 			<item value="/home/sleepysnoopy/JavaPrograms/Android"/>
 		</list>
 	</section>
 	<section name="WorkbenchPreferenceDialogSettings">
-		<item value="1" key="DIALOG_Y_ORIGIN"/>
-		<item value="329" key="DIALOG_X_ORIGIN"/>
+		<item value="32" key="DIALOG_Y_ORIGIN"/>
+		<item value="518" key="DIALOG_X_ORIGIN"/>
 	</section>
 	<section name="NewWizardAction">
 	</section>
@@ -20,7 +22,6 @@
 		<item value="org.eclipse.jdt.internal.ui.jarpackager.JarPackageWizard" key="ImportExportPage.STORE_SELECTED_EXPORT_WIZARD_ID"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>
-			<item value="com.android.ide.eclipse.wizards.category"/>
 		</list>
 		<list key="ImportExportPage.STORE_EXPANDED_EXPORT_CATEGORIES">
 			<item value="org.eclipse.ui.Basic"/>

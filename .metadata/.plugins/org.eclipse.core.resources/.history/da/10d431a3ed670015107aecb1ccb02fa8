@@ -1,0 +1,53 @@
+package com.barghest.games.chooserpg;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextField;
+
+
+public class addGUI {
+	public void addButton(String text, int x, int y, int anchor, int width, int weight, GridBagConstraints grid) {
+		JButton button = new JButton(text);
+		grid.fill = GridBagConstraints.HORIZONTAL;
+		grid.anchor = anchor;
+		grid.weighty = weight;
+		grid.gridwidth = width;
+		grid.gridx = x;
+		grid.gridy = y;
+		add(button, grid);
+	}
+	
+	public void addRadioButton(String name, int x, int y) {
+		JRadioButton button = new JRadioButton(name);
+		grid.fill = GridBagConstraints.HORIZONTAL;
+		grid.weightx = 0.5;
+		grid.gridx = x;
+		grid.gridy = y;
+		add(button, grid);
+	}
+	
+	public void addLabel(String text, int x, int y) {
+		JLabel label = new JLabel(text);
+		label.setFont(new Font("Serif", Font.PLAIN, 12));
+		grid.weightx = 0.5;
+		grid.fill = GridBagConstraints.HORIZONTAL;
+		grid.gridx=x;
+		grid.gridy=y;
+        add(label, grid);
+	}
+	
+	public JTextField addText(int x, int y, boolean edit, String event) {
+		JTextField textField = new JTextField(12);
+		textField.setEditable(edit);
+		textField.setActionCommand(event);
+		textField.addActionListener(this);
+        grid.fill = GridBagConstraints.HORIZONTAL;
+        grid.weightx = 0.5;
+        grid.gridx = x;
+        grid.gridy = y;
+        return textField;
+	}
+}

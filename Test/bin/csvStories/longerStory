@@ -1,0 +1,11 @@
+What Is Real?
+
+start,,"You awaken, lying in a bed in a dark room with no windows.",exploreRoom goOutOfRoom
+exploreRoom,Explore The Room,"You walk around the room, other than the bed and the door there is little to see or find.  However while exploring you find a loose rock in the wall.",	goOutOfRoom pryRockFree
+goOutOfRoom,Go out the door,"You go out the door to find a man sitting at a table.  He does not look up as you walk over and sit down across from him.",greetHim challangeHim
+greetHim,"Greet him","You greet him, he ignores you, you're not even sure he noticed you at all.",slapsYou
+challangeHim,"Ask him what the hell is going on","He ignores you, hardly even seeming like he sees you.",slapsYou
+slapsYou,,"You get angry, demanding to know what's going on.  In one fluid motion he slaps you to the ground, and you lie dazed while he drags you back into the room and throws you onto the bed, where you drift asleep.",start
+pryRockFree,Pry the rock out of the wall,	"You pry the rock out of the wall, revealing a long, dark hole.  You reach inside, and can feel what seems to be a lever.",pullLever putRockBack
+pullLever,Pull the lever,	"You pull the lever and a section of wall slides away to reveal a secret passage way.  You follow this passageway and find yourself in a big open meadow, and you frolic, meeting beautiful women who care for you and pamer you - That is until...",start
+putRockBack,Put the rock back,"You put the rock back in the wall",exploreRoom goOutOfRoom

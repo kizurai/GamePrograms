@@ -1,0 +1,18 @@
+/*
+This class was developed by Michael Diamond (http://www.DigitalGemstones.com) �2010
+and is released freely for personal and corporate use under the license which can be found at: 
+http://digitalgemstones.com/licence.php 
+and can be summarized as: 
+You are free to use this software for any purpose as long as Digital Gemstones is credited, 
+and may redistribute the software in its original form or modified as you see fit,  
+as long as any credit comments in the code remain unchanged. 
+*/
+package adventure;
+
+public class MalformedStoryException extends Exception {
+	private static final long serialVersionUID = -8258677487549960345L;
+	
+	public MalformedStoryException(String str){
+		super(str);
+	}
+}

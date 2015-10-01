@@ -1,0 +1,9 @@
+package com.barghest.games.chooserpg;
+
+public class ChooseYourStoryFrame {
+
+	public static void main(String[] args) {
+		new ChooseYourStoryFrame();
+	}
+
+}

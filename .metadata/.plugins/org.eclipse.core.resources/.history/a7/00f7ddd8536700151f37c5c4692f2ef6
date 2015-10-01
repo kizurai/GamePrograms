@@ -1,0 +1,132 @@
+
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+public class Board extends JPanel implements ActionListener{
+
+		private GridBagConstraints grid;
+		private JTextArea introText;
+		private JTextField namefield;
+		private JTextField nameconfirmation;
+		
+		public Board() {
+			super(new GridBagLayout());
+			grid = new GridBagConstraints();
+			grid.ipady = 0;
+			
+			int x = 0;
+			int y = 0;
+			
+			introText = new JTextArea();
+			introText.setText("\nYou will begin as a young adolescent.\n" +
+					"A sparkling new life that has yet to step out into the world. " +
+					"You are but a simple being that walks among the land like any other. " +
+					"You will make some choices in life that may shape who you become in the future and may open or close opportunities. " +
+					"Like any other being, sometimes, the path you take might make you notorious; whether good or bad is really for you to decide. " +
+					"\n\nBut, before we can even begin your story please tell me about yourself: ");
+			introText.setLineWrap(true);
+			introText.setWrapStyleWord(true);
+			introText.setEditable(false);
+			introText.setOpaque(false);
+			introText.setFont(new Font("Serif", Font.PLAIN, 12));
+			grid.weightx = 0.5;
+			grid.fill = GridBagConstraints.HORIZONTAL;
+			grid.gridwidth = 4;
+			grid.gridx=x;
+			grid.gridy=y;
+	        add(introText, grid);
+			
+			y++; addLabel("What is your name?", x, y); x++;
+			namefield = addText(x, y, true, "name");
+			grid.gridwidth = 1;
+			add(namefield, grid); x++;
+			addButton("Enter", x, y, GridBagConstraints.CENTER, 1, 2);
+			
+			x=0; y++;
+			nameconfirmation = addText(x, y, false, "nothing");
+			grid.gridwidth = 3;
+			add(nameconfirmation, grid);
+			
+			grid.gridwidth = 1;
+			x=0; y++; addLabel("\n", x, y);
+			
+			y++; addLabel("\nWhat is your gender?", x, y); y++;
+			addRadioButton("Female", x, y);
+			x++;
+			addRadioButton("Male", x, y);
+
+			x=0; y++; addLabel("\n", x, y);
+			
+			y++; addLabel("\nWhat is your race?", x, y); y++;
+			addRadioButton("Human", x, y); x++;
+			addRadioButton("Demon", x, y); x++;
+			addRadioButton("Saint", x, y); y++;
+			addRadioButton("Half Demon", 0, y); x++;
+			addRadioButton("Half Saint", 1, y); y++;
+			
+			x=0; y++; addLabel("\n", x, y);
+			x=0; y++; addLabel("\n", x, y);
+			y++;
+			addButton("Start your story", 0, y, GridBagConstraints.PAGE_END, 3, 1);
+			//addButton("Next", 3, y, GridBagConstraints.PAGE_END, 1, 1);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent event) {
+			if ("name".equals(event.getActionCommand())) {
+				String text = namefield.getText();
+				nameconfirmation.setText("You have named yourself " + text + ".");
+			}
+		}
+		
+		public void addButton(String text, int x, int y, int anchor, int width, int weight) {
+			JButton button = new JButton(text);
+			grid.fill = GridBagConstraints.HORIZONTAL;
+			grid.anchor = anchor;
+			grid.weighty = weight;
+			grid.gridwidth = width;
+			grid.gridx = x;
+			grid.gridy = y;
+			add(button, grid);
+		}
+		public void addRadioButton(String name, int x, int y) {
+			JRadioButton button = new JRadioButton(name);
+			grid.fill = GridBagConstraints.HORIZONTAL;
+			grid.weightx = 0.5;
+			grid.gridx = x;
+			grid.gridy = y;
+			add(button, grid);
+		}
+		
+		public void addLabel(String text, int x, int y) {
+			JLabel label = new JLabel(text);
+			label.setFont(new Font("Serif", Font.PLAIN, 12));
+			grid.weightx = 0.5;
+			grid.fill = GridBagConstraints.HORIZONTAL;
+			grid.gridx=x;
+			grid.gridy=y;
+	        add(label, grid);
+		}
+		
+		public JTextField addText(int x, int y, boolean edit, String event) {
+			JTextField textField = new JTextField(12);
+			textField.setEditable(edit);
+			textField.setActionCommand(event);
+			textField.addActionListener(this);
+	        grid.fill = GridBagConstraints.HORIZONTAL;
+	        grid.weightx = 0.5;
+	        grid.gridx = x;
+	        grid.gridy = y;
+	        return textField;
+		}
+}
