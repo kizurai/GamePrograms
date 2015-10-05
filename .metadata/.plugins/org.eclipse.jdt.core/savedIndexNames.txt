@@ -1,16 +1,5 @@
-INDEX VERSION 1.126+/home/sophy/GamePrograms/.metadata/.plugins/org.eclipse.jdt.core
-2456322530.index
-1698757907.index
-3422508414.index
-2683054613.index
-1169277626.index
-3703194086.index
-1825514421.index
-1230503809.index
-417373247.index
-2898480234.index
-3937884183.index
-1159935248.index
-3721354332.index
-262802227.index
-3227926650.index
+INDEX VERSION 1.126+C:\Users\Kizu Rai\Desktop\Documents\GitHub\GamePrograms\.metadata\.plugins\org.eclipse.jdt.core
+2857660459.index
+1490025505.index
+1657330681.index
+305665663.index

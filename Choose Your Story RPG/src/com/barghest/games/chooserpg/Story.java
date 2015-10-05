@@ -9,6 +9,9 @@ as long as any credit comments in the code remain unchanged.
 */
 package com.barghest.games.chooserpg;
 
+import rpg.BadChoice;
+import rpg.Choice;
+
 public abstract class Story implements Comparable<Story> {
 	protected String title;
 	protected Choice storyStart;
