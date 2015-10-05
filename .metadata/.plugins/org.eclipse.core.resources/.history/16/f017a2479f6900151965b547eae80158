@@ -3,52 +3,69 @@ package com.barghest.games.chooserpg;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collections;
-
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
-import javax.swing.JFileChooser;
 import javax.swing.JFrame;
-import javax.swing.JList;
-import javax.swing.JMenu;
+import javax.swing.JLabel;
 import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.ListSelectionModel;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
+import javax.swing.JTextField;
 
 @SuppressWarnings("serial")
-public class ChooseYourStoryFrame extends JFrame implements ActionListener, ListSelectionListener{
+public class ChooseYourStoryFrame extends JFrame implements ActionListener{
 
-	private ArrayList<Story> storiesList;
-	private Story story = null;
+	public String testRace = "Saint";
+	
+	private final int SCREEN_WIDTH = 425;
+	private final int SCREEN_HEIGHT = 524;
+	private Player player;
 	private String plot = "";
-
-	private JFileChooser fc = new JFileChooser();
+	private Game mainGameStory = null;
+	
 	private JPanel main;
-	private JList storiesJList;
 	private JPanel storyPanel;
 	private JTextArea storyTextArea;
 	private JPanel controlPanel;
-	private JPanel storiesPanel;
-	private JPanel storiesControls;
-	private JButton playButton;
-	private JButton restartButton;
+	private JPanel newCharacterPanel;
+	private JPanel menuPanel;
+	
 	private ArrayList<JRadioButton> choiceButtons;
-	private ButtonGroup choiceButGrp;
-	private JMenuItem loadFile;
-	private JMenuItem loadDir;
+	private ButtonGroup choiceGroup;
+	
+	//menu buttons
+	private Box boxes[];
+	private JButton loadGame;
+	private JButton SaveGame;
+	private JButton newGame;
+	private JButton MenuButton;
+	
+	//introduction stuff
+	private Box introBoxes[];
+	private JPanel characterPanel;
+	private JTextArea introText;
+	private JButton enterButton;
+	private JTextField namefield;
+	private JTextField nameconfirmation;
+	private JRadioButton femaleButton;
+	private JRadioButton maleButton;
+	private JRadioButton humanButton;
+	private JRadioButton demonButton;
+	private JRadioButton saintButton;
+	private JRadioButton halfdemonBtn;
+	private JRadioButton halfsaintBtn;
+	private JButton startStoryButton;
+	private int genderChoice = 0;
+	private int raceChoice = 0;
 	
 	private static int MAX_CHOICES = 8;
 	
@@ -58,60 +75,119 @@ public class ChooseYourStoryFrame extends JFrame implements ActionListener, List
 	
 	public ChooseYourStoryFrame(){
 		init();
-		getStories();
 	}
 	
-	private void getStories() {
-		//StoryGrabber.loadStory("Saint", 1);
+	private void update(){
+
 	}
 
-	private void init() {
-		setSize(425,524);
-		setTitle("Choose Your Life RPG - Fantasy");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setLocationRelativeTo(null);
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		if (src == loadGame){
+			System.out.println("Load Game");
+			start();
+		} else if (src == SaveGame) {
+			System.out.println("Save Game");
+		} else if (src == newGame){
+			System.out.println("New Game");
+			startNewGame();
+		} else if (src == MenuButton) {
+			if (menuPanel.isVisible()) {
+				menuPanel.setVisible(false);
+			} else {
+				menuPanel.setVisible(true);
+			}
+		} else if (src == startStoryButton) {
+			player = new Player(namefield.getText(), genderChoice, raceChoice);
+			main.remove(newCharacterPanel);
+			start();
+		} else{
+			int i = choiceButtons.indexOf(src);
+			if(i == -1)
+				return;
+			choiceGroup.clearSelection();
+		}
+	}
+
+	private void startNewGame() {
+		menuPanel.setVisible(false);
+
+		newCharacterPanel = new JPanel(new BorderLayout());
+		main.add(newCharacterPanel,BorderLayout.CENTER);
 		
-		JMenuBar menuBar = new JMenuBar();
+		introBoxes = new Box[9];
+		introBoxes[0] = Box.createHorizontalBox();
+		introBoxes[1] = Box.createHorizontalBox();
+		introBoxes[2] = Box.createHorizontalBox();
+		introBoxes[3] = Box.createHorizontalBox();
+		introBoxes[4] = Box.createHorizontalBox();
+		introBoxes[5] = Box.createHorizontalBox();
+		introBoxes[6] = Box.createHorizontalBox();
+		introBoxes[7] = Box.createHorizontalBox();
+		introBoxes[8] = Box.createHorizontalBox();
 		
-		JMenu loadMenu = new JMenu("Load");
-		menuBar.add(loadMenu);
+		introText = new JTextArea();
+		introText.setEditable(false);
+		introText.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		introText.setLineWrap(true);
+		introText.setWrapStyleWord(true);
+		introText.setOpaque(false);
+		introText.setVisible(true);
+		JScrollPane storyScroll = new JScrollPane(introText);
+		newCharacterPanel.add(storyScroll,BorderLayout.CENTER);
 		
-		loadFile = new JMenuItem("Load File");
-		loadFile.addActionListener(this);
-		loadMenu.add(loadFile);
+		characterPanel = new JPanel(new GridLayout(15,3));
+		characterPanel.setPreferredSize(new Dimension(400,290));
+		newCharacterPanel.add(characterPanel,BorderLayout.SOUTH);
 		
-		loadDir = new JMenuItem("Load Directory");
-		loadDir.addActionListener(this);
-		loadMenu.add(loadDir);
+		addLabel("What is your name?", 0, introBoxes);
+		characterPanel.add(introBoxes[0], BorderLayout.NORTH);
+		namefield = new JTextField(12);
+		namefield.setEditable(true);
+        namefield.addActionListener(this);
+        namefield.setMaximumSize(new Dimension(400, 300));
+        namefield.setPreferredSize(new Dimension(400, 300));
+        namefield.setVisible(true);
+        introBoxes[1].add(Box.createHorizontalGlue());
+        introBoxes[1].add(namefield);
+        enterButton = new JButton("Enter");
+        Dimension enterDim = new Dimension(110, 100);
+        introBoxes[1].add(Box.createVerticalStrut(15));
+		addButtons(characterPanel, enterButton, enterDim, 1, BorderLayout.EAST, introBoxes);
+		nameconfirmation = new JTextField(12);
+		nameconfirmation.setEditable(false);
 		
-		this.setJMenuBar(menuBar);
+		addLabel("What is your gender?", 3, introBoxes); 
+		addRadioButton(femaleButton, "Female", 4, introBoxes);
+		addRadioButton(maleButton, "Male", 4, introBoxes);
+		characterPanel.add(introBoxes[3], BorderLayout.WEST);
+		characterPanel.add(introBoxes[4], BorderLayout.CENTER);
 		
-		main = new JPanel(new BorderLayout());
-		setContentPane(main);
+		addLabel("\nWhat is your race?", 5, introBoxes);
+		addRadioButton(humanButton, "Human", 6, introBoxes);
+		addRadioButton(demonButton, "Demon", 6, introBoxes);
+		addRadioButton(saintButton, "Saint", 6, introBoxes);
+		addRadioButton(halfdemonBtn, "Half Demon", 7, introBoxes);
+		addRadioButton(halfsaintBtn,"Half Saint", 7, introBoxes);
+		characterPanel.add(introBoxes[5], BorderLayout.WEST);
+		characterPanel.add(introBoxes[6], BorderLayout.CENTER);
+		characterPanel.add(introBoxes[7], BorderLayout.CENTER);
 		
-		storiesList = new ArrayList<Story>();
+		startStoryButton = new JButton("Start your story");
 		
-		storiesPanel = new JPanel(new BorderLayout());
-		main.add(storiesPanel,BorderLayout.WEST);
-		
-		//storiesJList = new JList();
-		//storiesJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		//storiesJList.addListSelectionListener(this);
-		//JScrollPane listScroll = new JScrollPane(storiesJList);
-		//listScroll.setPreferredSize(new Dimension(170,0));
-		//storiesPanel.add(listScroll,BorderLayout.CENTER);
-		
-		storiesControls = new JPanel();
-		storiesPanel.add(storiesControls,BorderLayout.SOUTH);
-		playButton = new JButton("Play Story");
-		playButton.setEnabled(false);
-		playButton.addActionListener(this);
-		storiesControls.add(playButton);
-		
-		restartButton = new JButton("Restart Story");
-		restartButton.setEnabled(false);
-		restartButton.addActionListener(this);
-		storiesControls.add(restartButton);
+		addButtons(characterPanel, startStoryButton, enterDim, 8, BorderLayout.SOUTH, introBoxes);
+
+		introText.setText("\nYou will begin as a young adolescent.\n" +
+				"A sparkling new life that has yet to step out into the world. " +
+				"You are but a simple being that walks among the land like any other. " +
+				"You will make some choices in life that may shape who you become in the future and may open or close opportunities. " +
+				"Like any other being, sometimes, the path you take might make you notorious; whether good or bad is really for you to decide. " +
+				"\n\nBut, before we can even begin your story please tell me about yourself: ");
+	}
+	
+	private void start(){
+		menuPanel.setVisible(false);
 		
 		storyPanel = new JPanel(new BorderLayout());
 		main.add(storyPanel,BorderLayout.CENTER);
@@ -121,135 +197,86 @@ public class ChooseYourStoryFrame extends JFrame implements ActionListener, List
 		storyTextArea.setFont(new Font("SansSerif", Font.PLAIN, 16));
 		storyTextArea.setLineWrap(true);
 		storyTextArea.setWrapStyleWord(true);
+		storyTextArea.setVisible(true);
 		JScrollPane storyScroll = new JScrollPane(storyTextArea);
 		storyPanel.add(storyScroll,BorderLayout.CENTER);
-		
+
 		controlPanel = new JPanel(new GridLayout(4,2));
-		controlPanel.setPreferredSize(new Dimension(0,100));
+		controlPanel.setPreferredSize(new Dimension(400,100));
 		storyPanel.add(controlPanel,BorderLayout.SOUTH);
 		
 		choiceButtons = new ArrayList<JRadioButton>();
-		choiceButGrp = new ButtonGroup();
-		if(MAX_CHOICES % 2 == 1)
-			throw new RuntimeException("MAX_CHOICES should be a multiple of 2.");
+		choiceGroup = new ButtonGroup();
 		for(int i = 0; i < MAX_CHOICES; i++){
 			JRadioButton b = new JRadioButton();
 			b.addActionListener(this);
 			b.setVisible(false);
 			controlPanel.add(b);
 			choiceButtons.add(b);
-			choiceButGrp.add(b);
-		}	
+			choiceGroup.add(b);
+		}
+		storyPanel.setVisible(true);
+		plot = Game.loadStory(testRace, 1);
+		storyTextArea.setText(plot);
+		update();
+	}
+	
+	private void init() {
+		setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+		setTitle("Choose Your Life RPG - Fantasy");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		Dimension panelSize = new Dimension(110, 30);
+		JMenuBar menuBar = new JMenuBar();
+		this.setJMenuBar(menuBar);
+		
+		MenuButton = new JButton("Menu");
+		MenuButton.addActionListener(this);
+		menuBar.add(MenuButton);
+		loadGame = new JButton("Load");
+		SaveGame = new JButton("Save");
+		newGame = new JButton("New Game");
+		
+		main = new JPanel(new BorderLayout());
+		setContentPane(main);
+		boxes = new Box[ 3 ];
+		boxes[0] = Box.createHorizontalBox();
+		boxes[1] = Box.createHorizontalBox();
+		boxes[2] = Box.createHorizontalBox();
+		
+		menuPanel = new JPanel(new BorderLayout());
+		menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+		menuPanel.setPreferredSize(panelSize);
+		main.add(menuPanel,BorderLayout.WEST);
+		boxes[0].add(Box.createVerticalStrut(30));
+		boxes[1].add(Box.createVerticalStrut(30));
+		boxes[2].add(Box.createVerticalStrut(30));
+		addButtons(menuPanel, newGame, panelSize, 0, BorderLayout.NORTH, boxes);
+		addButtons(menuPanel, SaveGame, panelSize, 1, BorderLayout.NORTH, boxes);
+		addButtons(menuPanel, loadGame, panelSize, 2, BorderLayout.NORTH, boxes);
+		menuPanel.setVisible(true);
+	
 		setVisible(true);
 	}
-
-	private void start(){
-		plot = story.title()+"\n";
-		storyTextArea.setText(plot);
-		story.restart();
-		updatePlot();
-	}
-	private void updatePlot(){
-		while(story.numChoices() >= 0){
-			plot += "\n"+story.getStory();
-			if(story.numChoices() == 1){
-				try {
-					story.makeChoice(0);
-				} catch (BadChoice e) {
-					throw new RuntimeException("Well that's not supposed to happen!");
-				}
-			} else {
-				break;
-			}
-		}
-
-		if(story.numChoices() == 0){
-			plot += "\n\nThe End!";
-		}
-		
-		storyTextArea.setText(plot);
-		updateChoices();
+	
+	public void addButtons(JPanel pane, JButton button, Dimension dim, int index, Object constraints, Box boxes[]) {
+		button.setPreferredSize(dim);
+		button.setMinimumSize(dim);
+		button.addActionListener(this);
+		boxes[index].add(Box.createHorizontalGlue());
+		boxes[index].add(button);
+		pane.add(boxes[index], constraints);
 	}
 	
-	private void updateChoices(){
-		String[] choices = story.getChoices();
-		int i;
-		for(i = 0; i < choices.length; i++){
-			choiceButtons.get(i).setText(choices[i]);
-			choiceButtons.get(i).setVisible(true);
-		}
-		for(; i < MAX_CHOICES; i++){
-			choiceButtons.get(i).setText("");
-			choiceButtons.get(i).setVisible(false);
-		}
+	public void addLabel(String text, int index, Box boxes[]) {
+		JLabel label = new JLabel(text);
+		label.setFont(new Font("Serif", Font.PLAIN, 13));
+		boxes[index].add(label);
 	}
 	
-	private void makeChoice(int choice){
-		try {
-			story.makeChoice(choice);
-		} catch (BadChoice e) {
-			throw new RuntimeException("This shouldn't happen either!");
-		}
-		updatePlot();
-	}
-	@Override
-	public void valueChanged(ListSelectionEvent evt) {
-		if (evt.getValueIsAdjusting() == false) {
-	        if (storiesJList.getSelectedIndex() == -1) {
-	        //No selection, disable play button.
-	        	playButton.setEnabled(false);
-	        } else {
-	        //Selection, enable the play button.
-	        	playButton.setEnabled(true);
-	        }
-	    }
-	}
-
-	@Override
-	public void actionPerformed(ActionEvent evt) {
-		Object src = evt.getSource();
-		if (src == loadFile){
-			fc.setFileSelectionMode(JFileChooser.FILES_ONLY);
-			fc.setMultiSelectionEnabled(true);
-			int ret = fc.showOpenDialog(this);
-			if(ret == JFileChooser.APPROVE_OPTION){
-				loadFiles(fc.getSelectedFiles());
-			}
-		} if(src == loadDir) {
-			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-			fc.setMultiSelectionEnabled(false);
-			int ret = fc.showOpenDialog(this);
-			if(ret == JFileChooser.APPROVE_OPTION){
-				loadDir(fc.getSelectedFile());
-			}
-		} else if(src == playButton){
-			story = storiesList.get(storiesJList.getSelectedIndex());
-        	restartButton.setEnabled(true);
-        	start();
-		} else if(src == restartButton){
-			start();
-		} else{
-			int i = choiceButtons.indexOf(src);
-			if(i == -1)
-				return;
-			choiceButGrp.clearSelection();
-			makeChoice(i);
-		}
-	}
-	
-	private void loadFiles(File[] files){
-	}
-	
-	private void loadDir(File dir){
-		if(!dir.isDirectory()){
-			JOptionPane.showMessageDialog(this, "Invalid or Nonexistant Directory.", "File Error", JOptionPane.ERROR_MESSAGE);
-			return;
-		}
-		File[] ls = dir.listFiles();
-		if(ls == null){
-			JOptionPane.showMessageDialog(this, "Unable To Access Directory.", "File Error", JOptionPane.ERROR_MESSAGE);
-			return;
-		}
-		loadFiles(ls);
+	public void addRadioButton(JRadioButton button, String name, int index, Box boxes[]) {
+		button = new JRadioButton(name);
+		boxes[index].add(Box.createHorizontalGlue());
+		boxes[index].add(button);
 	}
 }
