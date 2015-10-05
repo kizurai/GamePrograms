@@ -1,0 +1,41 @@
+package com.barghest.games.chooserpg;
+
+import java.io.File;
+import java.util.Scanner;
+import java.util.regex.Pattern;
+
+public class Game {
+
+	private String title;
+	private String story;
+	
+	public static String loadStory(String race, int chapter) {
+        File file = new File("data/ChooseRPG-" + race + ".txt");
+        String pattern = "-Chapter " + chapter + "-";
+        int nextChap = chapter + 1;
+        String endpattern = "-Chapter " + nextChap + "-";
+        System.out.println(pattern + " and " + endpattern);
+        Boolean foundChap = false;
+        
+        StringBuilder story = new StringBuilder();
+        try {
+	        Scanner sc = new Scanner(file);
+	        sc.reset();
+	        while(sc.hasNextLine()) {
+	        	String line = sc.nextLine();
+	        	if (sc.hasNext(pattern)) { foundChap = true; }
+	        	else if (sc.hasNext(endpattern)) { foundChap = false; }
+	        	if (foundChap) {
+	        		System.out.println(line);
+	        		story.append(line);
+	        	}
+        		//System.out.println(line);
+	        }
+	        
+	        sc.close();
+        } catch (Exception e) {
+        	e.printStackTrace();
+        }
+        return story.toString();
+    }
+}

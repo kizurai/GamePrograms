@@ -1,0 +1,251 @@
+package com.barghest.games.chooserpg;
+
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
+@SuppressWarnings("serial")
+public class ChooseYourStoryFrame extends JFrame implements ActionListener{
+
+	public String testRace = "Saint";
+	
+	private final int SCREEN_WIDTH = 425;
+	private final int SCREEN_HEIGHT = 524;
+	private String plot = "";
+	private Game mainGameStory = null;
+	
+	private JPanel main;
+	private JPanel storyPanel;
+	private JTextArea storyTextArea;
+	private JPanel controlPanel;
+	private JPanel newCharacterPanel;
+	private JPanel menuPanel;
+	
+	private ArrayList<JRadioButton> choiceButtons;
+	private ButtonGroup choiceGroup;
+	
+	//menu buttons
+	private Box boxes[];
+	private JButton loadGame;
+	private JButton SaveGame;
+	private JButton newGame;
+	private JButton MenuButton;
+	
+	//introduction stuff
+	private Box introBoxes[];
+	private JPanel characterPanel;
+	private JTextArea introText;
+	private JButton enterButton;
+	private JTextField namefield;
+	private JTextField nameconfirmation;
+	
+	private static int MAX_CHOICES = 8;
+	
+	public static void main(String[] args) {
+		new ChooseYourStoryFrame();
+	}
+	
+	public ChooseYourStoryFrame(){
+		init();
+	}
+	
+	private void update(){
+
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		Object src = e.getSource();
+		if (src == loadGame){
+			System.out.println("Load Game");
+			start();
+		} else if (src == SaveGame) {
+			System.out.println("Save Game");
+		} else if (src == newGame){
+			System.out.println("New Game");
+			newGamePlay();
+		} else if (src == MenuButton) {
+			if (menuPanel.isVisible()) {
+				menuPanel.setVisible(false);
+			} else {
+				menuPanel.setVisible(true);
+			}
+		} else{
+			int i = choiceButtons.indexOf(src);
+			if(i == -1)
+				return;
+			choiceGroup.clearSelection();
+		}
+	}
+
+	private void newGamePlay() {
+		menuPanel.setVisible(false);
+
+		newCharacterPanel = new JPanel(new BorderLayout());
+		main.add(newCharacterPanel,BorderLayout.CENTER);
+		
+		introBoxes = new Box[8];
+		introBoxes[0] = Box.createHorizontalBox();
+		introBoxes[1] = Box.createHorizontalBox();
+		introBoxes[2] = Box.createHorizontalBox();
+		introBoxes[3] = Box.createHorizontalBox();
+		introBoxes[4] = Box.createHorizontalBox();
+		introBoxes[5] = Box.createHorizontalBox();
+		introBoxes[6] = Box.createHorizontalBox();
+		introBoxes[7] = Box.createHorizontalBox();
+		
+		introText = new JTextArea();
+		introText.setEditable(false);
+		introText.setFont(new Font("SansSerif", Font.PLAIN, 12));
+		introText.setLineWrap(true);
+		introText.setWrapStyleWord(true);
+		introText.setOpaque(false);
+		introText.setVisible(true);
+		JScrollPane storyScroll = new JScrollPane(introText);
+		newCharacterPanel.add(storyScroll,BorderLayout.CENTER);
+		
+		characterPanel = new JPanel(new GridLayout(15,3));
+		characterPanel.setPreferredSize(new Dimension(400,290));
+		newCharacterPanel.add(characterPanel,BorderLayout.SOUTH);
+		
+		addLabel(characterPanel, "What is your name?", 0, BorderLayout.NORTH);
+		namefield = new JTextField(12);
+		namefield.setEditable(true);
+        namefield.addActionListener(this);
+        namefield.setMaximumSize(new Dimension(400, 300));
+        namefield.setPreferredSize(new Dimension(400, 300));
+        namefield.setVisible(true);
+        introBoxes[1].add(Box.createHorizontalGlue());
+        introBoxes[1].add(namefield);
+        //characterPanel.add(introBoxes[1], BorderLayout.EAST);
+        enterButton = new JButton("Enter");
+        Dimension enterDim = new Dimension(110, 30);
+		addButtons(characterPanel, enterButton, enterDim, 1, BorderLayout.EAST, introBoxes);
+		nameconfirmation = new JTextField(12);
+		nameconfirmation.setEditable(false);
+		
+		addLabel(characterPanel, "What is your gender?", 3, BorderLayout.NORTH); 
+		addRadioButton("Female", 3, BorderLayout.NORTH);
+		addRadioButton("Male", 3, BorderLayout.NORTH);
+		addLabel("\nWhat is your race?", 4, BorderLayout.NORTH);
+		addRadioButton("Human", 4, BorderLayout.NORTH);
+		addRadioButton("Demon", 4, BorderLayout.NORTH);
+		addRadioButton("Saint", 4, BorderLayout.NORTH);
+		addRadioButton("Half Demon", 4, BorderLayout.NORTH);
+		addRadioButton("Half Saint", 4, BorderLayout.NORTH);
+		addButton("Start your story", "start", GridBagConstraints.PAGE_END, 3, 1, grid);
+
+		introText.setText("\nYou will begin as a young adolescent.\n" +
+				"A sparkling new life that has yet to step out into the world. " +
+				"You are but a simple being that walks among the land like any other. " +
+				"You will make some choices in life that may shape who you become in the future and may open or close opportunities. " +
+				"Like any other being, sometimes, the path you take might make you notorious; whether good or bad is really for you to decide. " +
+				"\n\nBut, before we can even begin your story please tell me about yourself: ");
+	}
+	
+	private void start(){
+		menuPanel.setVisible(false);
+
+		storyPanel = new JPanel(new BorderLayout());
+		main.add(storyPanel,BorderLayout.CENTER);
+		
+		storyTextArea = new JTextArea();
+		storyTextArea.setEditable(false);
+		storyTextArea.setFont(new Font("SansSerif", Font.PLAIN, 16));
+		storyTextArea.setLineWrap(true);
+		storyTextArea.setWrapStyleWord(true);
+		storyTextArea.setVisible(true);
+		JScrollPane storyScroll = new JScrollPane(storyTextArea);
+		storyPanel.add(storyScroll,BorderLayout.CENTER);
+
+		controlPanel = new JPanel(new GridLayout(4,2));
+		controlPanel.setPreferredSize(new Dimension(400,100));
+		storyPanel.add(controlPanel,BorderLayout.SOUTH);
+		
+		choiceButtons = new ArrayList<JRadioButton>();
+		choiceGroup = new ButtonGroup();
+		for(int i = 0; i < MAX_CHOICES; i++){
+			JRadioButton b = new JRadioButton();
+			b.addActionListener(this);
+			b.setVisible(false);
+			controlPanel.add(b);
+			choiceButtons.add(b);
+			choiceGroup.add(b);
+		}
+		plot = Game.loadStory(testRace, 1);
+		storyTextArea.setText(plot);
+		update();
+	}
+	
+	private void init() {
+		setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
+		setTitle("Choose Your Life RPG - Fantasy");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
+		Dimension panelSize = new Dimension(110, 30);
+		JMenuBar menuBar = new JMenuBar();
+		this.setJMenuBar(menuBar);
+		
+		MenuButton = new JButton("Menu");
+		MenuButton.addActionListener(this);
+		menuBar.add(MenuButton);
+		loadGame = new JButton("Load");
+		SaveGame = new JButton("Save");
+		newGame = new JButton("New Game");
+		
+		main = new JPanel(new BorderLayout());
+		setContentPane(main);
+		boxes = new Box[ 3 ];
+		boxes[0] = Box.createHorizontalBox();
+		boxes[1] = Box.createHorizontalBox();
+		boxes[2] = Box.createHorizontalBox();
+		
+		menuPanel = new JPanel(new BorderLayout());
+		menuPanel.setLayout(new BoxLayout(menuPanel, BoxLayout.Y_AXIS));
+		menuPanel.setPreferredSize(panelSize);
+		main.add(menuPanel,BorderLayout.WEST);
+		boxes[0].add(Box.createVerticalStrut(30));
+		boxes[1].add(Box.createVerticalStrut(30));
+		boxes[2].add(Box.createVerticalStrut(30));
+		addButtons(menuPanel, newGame, panelSize, 0, BorderLayout.NORTH, boxes);
+		addButtons(menuPanel, SaveGame, panelSize, 1, BorderLayout.NORTH, boxes);
+		addButtons(menuPanel, loadGame, panelSize, 2, BorderLayout.NORTH, boxes);
+		menuPanel.setVisible(true);
+	
+		setVisible(true);
+		//start();
+	}
+	
+	public void addButtons(JPanel pane, JButton button, Dimension dim, int index, Object constraints, Box boxes[]) {
+		button.setPreferredSize(dim);
+		button.setMinimumSize(dim);
+		button.addActionListener(this);
+		boxes[index].add(Box.createHorizontalGlue());
+		boxes[index].add(button);
+		pane.add(boxes[index], constraints);
+	}
+	
+	public void addLabel(JPanel pane, String text, int index, Object constraints) {
+		JLabel label = new JLabel(text);
+		label.setFont(new Font("Serif", Font.PLAIN, 12));
+		introBoxes[index].add(label);
+		pane.add(introBoxes[index], constraints);
+	}
+}

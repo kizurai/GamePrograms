@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="15" version="2.0">
+<workbench progressCount="17" version="2.0">
 <workbenchAdvisor/>
-<window height="615" width="944" x="128" y="112">
+<window height="609" maximized="true" width="936" x="226" y="27">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -20,7 +20,7 @@
 <coolItem id="org.eclipse.wst.xml.ui.perspective.NewFileToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.wst.xml.ui.design.DesignToolBar" itemType="typeToolBarContribution" x="-1" y="-1"/>
 <coolItem id="org.eclipse.debug.ui.launch.toolbar" itemType="typeToolBarContribution" x="-1" y="-1"/>
-<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="140" y="30"/>
+<coolItem id="org.eclipse.debug.ui.main.toolbar" itemType="typeToolBarContribution" x="40" y="30"/>
 <coolItem id="group.nav" itemType="typeGroupMarker"/>
 <coolItem id="org.eclipse.ui.workbench.navigate" itemType="typeToolBarContribution" x="232" y="30"/>
 <coolItem id="group.editor" itemType="typeGroupMarker"/>
@@ -43,17 +43,17 @@
 </folder>
 </info>
 </editorArea>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChooseYourAdventureFrame.java" partName="ChooseYourAdventureFrame.java" path="/home/sophy/GamePrograms/Test/src/adventure/ChooseYourAdventureFrame.java" title="ChooseYourAdventureFrame.java" tooltip="Test/src/adventure/ChooseYourAdventureFrame.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Test/src/adventure/ChooseYourAdventureFrame.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="5561" selectionTopPixel="2535"/>
-</editor>
 <editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChooseYourStoryFrame.java" partName="ChooseYourStoryFrame.java" path="/home/sophy/GamePrograms/Choose Your Story RPG/src/com/barghest/games/chooserpg/ChooseYourStoryFrame.java" title="ChooseYourStoryFrame.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/ChooseYourStoryFrame.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/ChooseYourStoryFrame.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3329" selectionTopPixel="3437"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="7269" selectionTopPixel="3055"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Story.java" partName="Story.java" path="/home/sophy/GamePrograms/Choose Your Story RPG/src/com/barghest/games/chooserpg/Story.java" title="Story.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/Story.java" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Story.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="542" selectionTopPixel="0"/>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" partName="Game.java" path="/home/sophy/GamePrograms/Choose Your Story RPG/src/com/barghest/games/chooserpg/Game.java" title="Game.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/Game.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Game.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="334" selectionTopPixel="0"/>
+</editor>
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/home/sophy/GamePrograms/Choose Your Story RPG/src/com/barghest/games/chooserpg/Player.java" title="Player.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/Player.java" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Player.java"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="0" selectionTopPixel="270"/>
 </editor>
 </editors>
 <views>
@@ -63,7 +63,6 @@
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
 <expanded>
-<category IMemento.internal.id="Warnings (4 items)"/>
 <category IMemento.internal.id="Errors"/>
 <category IMemento.internal.id="Warnings"/>
 </expanded>
@@ -252,15 +251,11 @@
 <hide_toolbar_item_id id="org.eclipse.jdt.ui.actions.OpenProjectWizard"/>
 <hide_toolbar_item_id id="org.eclipse.ui.edit.text.toggleShowSelectedElementOnly"/>
 <view id="org.eclipse.jdt.ui.PackageExplorer"/>
+<view id="org.eclipse.ui.views.ProblemView"/>
+<view id="org.eclipse.jdt.ui.JavadocView"/>
+<view id="org.eclipse.jdt.ui.SourceView"/>
+<view id="org.eclipse.ui.console.ConsoleView"/>
 <fastViewBars>
-<fastViewBar fastViewLocation="1024" id="bottom" orientation="256" selectedTabId="org.eclipse.ui.console.ConsoleView" style="0">
-<fastViews>
-<view id="org.eclipse.ui.views.ProblemView" ratio="0.3"/>
-<view id="org.eclipse.jdt.ui.JavadocView" ratio="0.3"/>
-<view id="org.eclipse.jdt.ui.SourceView" ratio="0.3"/>
-<view id="org.eclipse.ui.console.ConsoleView" ratio="0.2993311"/>
-</fastViews>
-</fastViewBar>
 <fastViewBar fastViewLocation="131072" id="right" orientation="512" selectedTabId="org.eclipse.ui.views.ContentOutline" style="0">
 <fastViews>
 <view id="org.eclipse.ui.views.ContentOutline" ratio="0.3"/>
@@ -290,19 +285,24 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.1808" ratioLeft="339" ratioRight="1536" relationship="2" relative="left"/>
 <info folder="true" part="bottom" ratio="0.64489114" ratioLeft="385" ratioRight="212" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
-<page content="org.eclipse.ui.views.ProblemView" label="LabelNotFound"/>
-<page content="org.eclipse.jdt.ui.JavadocView" label="LabelNotFound"/>
-<page content="org.eclipse.jdt.ui.SourceView" label="LabelNotFound"/>
-<page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
+<folder activePageID="org.eclipse.ui.console.ConsoleView" appearance="2" expanded="2">
+<page content="org.eclipse.ui.views.ProblemView" label="Problems"/>
+<page content="org.eclipse.jdt.ui.JavadocView" label="Javadoc"/>
+<page content="org.eclipse.jdt.ui.SourceView" label="Declaration"/>
+<page content="org.eclipse.ui.console.ConsoleView" label="Console"/>
 <page content="org.eclipse.search.ui.views.SearchView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.BookmarkView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
-<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
+<presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory">
+<part id="0"/>
+<part id="1"/>
+<part id="2"/>
+<part id="3"/>
+</presentation>
 </folder>
 </info>
 <info folder="true" part="right" ratio="0.7591313" ratioLeft="769" ratioRight="244" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="0">
+<folder appearance="2" expanded="2">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
 <page content="org.eclipse.ant.ui.views.AntView" label="LabelNotFound"/>
@@ -316,162 +316,160 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test/src/adventure/ChooseYourAdventureFrame.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/ChooseYourStoryFrame.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/StoryGrabber.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Game.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Story.java"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Test/src/adventure/Choice.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Board.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Player.java"/>
 </editors>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="6001" y="2484"/>
+<item historyLabel="Board.java" index="2">
+<position info="not_deleted" x="504" y="98"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="1640" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="1435" y="0"/>
 </item>
-<item historyLabel="Game.java" index="3">
-<position info="not_deleted" x="253" y="95"/>
+<item historyLabel="Board.java" index="2">
+<position info="not_deleted" x="798" y="2074"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="1640" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="1435" y="0"/>
 </item>
-<item historyLabel="Game.java" index="3">
-<position info="not_deleted" x="233" y="115"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position/>
 </item>
-<item historyLabel="StoryGrabber.java" index="2">
-<position info="not_deleted" x="479" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="1640" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position/>
 </item>
-<item historyLabel="Game.java" index="3">
-<position info="not_deleted" x="233" y="115"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4445" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="1949" y="0"/>
+<item historyLabel="Board.java" index="2">
+<position info="not_deleted" x="4561" y="156"/>
 </item>
-<item historyLabel="Game.java" index="3">
-<position info="not_deleted" x="233" y="146"/>
+<item historyLabel="Game.java" index="1">
+<position info="not_deleted" x="846" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="2027" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4445" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="1432" y="63"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="970" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4445" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="1570" y="35"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4486" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="1228" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4487" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="8576" y="17"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4999" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="4212" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4445" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="8576" y="17"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="2257" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="4211" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="3350" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="8576" y="17"/>
+<item historyLabel="Board.java" index="2">
+<position info="not_deleted" x="1501" y="27"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="4211" y="0"/>
+<item historyLabel="Game.java" index="1">
+<position info="not_deleted" x="846" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="2482" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="3916" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="1906" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position/>
 </item>
-<item historyLabel="StoryGrabber.java" index="2">
-<position info="not_deleted" x="479" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="7325" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="1906" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4316" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="3611" y="872"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4373" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="6576" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4407" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="3159" y="398"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="7013" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="5711" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="2633" y="521"/>
+<item historyLabel="Board.java" index="2">
+<position info="not_deleted" x="3924" y="257"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="6620" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="5711" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="4544" y="312"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="9291" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="5667" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="9328" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="4864" y="125"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="9084" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="5299" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="5617" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="4994" y="983"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4965" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="5299" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4985" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="5561" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4065" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="5299" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="4088" y="0"/>
 </item>
-<item historyLabel="Story.java" index="4">
-<position info="not_deleted" x="599" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="8426" y="0"/>
 </item>
-<item historyLabel="Choice.java" index="5">
-<position info="not_deleted" x="4" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="2596" y="0"/>
 </item>
-<item historyLabel="Story.java" index="4">
-<position info="not_deleted" x="599" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="2717" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="5186" y="0"/>
+<item historyLabel="Player.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="StoryGrabber.java" index="2">
-<position info="not_deleted" x="479" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="2717" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="5186" y="0"/>
+<item historyLabel="Game.java" index="1">
+<position info="not_deleted" x="334" y="0"/>
 </item>
-<item historyLabel="Game.java" index="3">
-<position info="not_deleted" x="233" y="146"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="2717" y="0"/>
 </item>
-<item historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="843" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="2715" y="0"/>
 </item>
-<item historyLabel="Story.java" index="4">
-<position info="not_deleted" x="542" y="0"/>
+<item historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="7162" y="0"/>
 </item>
-<item historyLabel="ChooseYourAdventureFrame.java" index="0">
-<position info="not_deleted" x="5561" y="0"/>
+<item historyLabel="Player.java" index="3">
+<position info="not_deleted" x="0" y="0"/>
 </item>
-<item active="true" historyLabel="ChooseYourStoryFrame.java" index="1">
-<position info="not_deleted" x="843" y="0"/>
+<item active="true" historyLabel="ChooseYourStoryFrame.java" index="0">
+<position info="not_deleted" x="7162" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -494,20 +492,41 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/Player.java">
+<persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Player.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Board.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/Board.java">
+<persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Board.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="MainClass.java" tooltip="RoanSiegI/src/com/barghest/games/roan/MainClass.java">
+<persistable path="/RoanSiegI/src/com/barghest/games/roan/MainClass.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Tile.java" tooltip="RoanSiegI/src/com/barghest/games/roan/Tile.java">
+<persistable path="/RoanSiegI/src/com/barghest/games/roan/Tile.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StoryGrabber.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/StoryGrabber.java">
+<persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/StoryGrabber.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Sprite.java" tooltip="RoanSiegI/src/com/barghest/games/roan/Sprite.java">
+<persistable path="/RoanSiegI/src/com/barghest/games/roan/Sprite.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/Game.java">
+<persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Game.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Story.java" tooltip="Test/src/adventure/stories/Story.java">
+<persistable path="/Test/src/adventure/stories/Story.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="LoadStory.java" tooltip="Test/src/adventure/LoadStory.java">
+<persistable path="/Test/src/adventure/LoadStory.java"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="BadChoice.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/BadChoice.java">
+<persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/BadChoice.java"/>
+</file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Story.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/Story.java">
 <persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Story.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Choice.java" tooltip="Test/src/adventure/Choice.java">
 <persistable path="/Test/src/adventure/Choice.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Game.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/Game.java">
-<persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/Game.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="StoryGrabber.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/StoryGrabber.java">
-<persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/StoryGrabber.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Story.java" tooltip="Test/src/adventure/stories/Story.java">
-<persistable path="/Test/src/adventure/stories/Story.java"/>
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChooseYourStoryFrame.java" tooltip="Choose Your Story RPG/src/com/barghest/games/chooserpg/ChooseYourStoryFrame.java">
 <persistable path="/Choose Your Story RPG/src/com/barghest/games/chooserpg/ChooseYourStoryFrame.java"/>
@@ -517,27 +536,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="testStory" tooltip="Test/src/csvStories/testStory">
 <persistable path="/Test/src/csvStories/testStory"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.ui.DefaultTextEditor" name="longerStory" tooltip="Test/src/csvStories/longerStory">
-<persistable path="/Test/src/csvStories/longerStory"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CSVWriter.java" tooltip="Test/src/util/csv/CSVWriter.java">
-<persistable path="/Test/src/util/csv/CSVWriter.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ResultSetHelper.java" tooltip="Test/src/util/csv/ResultSetHelper.java">
-<persistable path="/Test/src/util/csv/ResultSetHelper.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ResultSetHelperService.java" tooltip="Test/src/util/csv/ResultSetHelperService.java">
-<persistable path="/Test/src/util/csv/ResultSetHelperService.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CSVReader.java" tooltip="Test/src/util/csv/CSVReader.java">
-<persistable path="/Test/src/util/csv/CSVReader.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="CSVParser.java" tooltip="Test/src/util/csv/CSVParser.java">
-<persistable path="/Test/src/util/csv/CSVParser.java"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChooseYourAdventureFrame.java" tooltip="Test/src/adventure/ChooseYourAdventureFrame.java">
-<persistable path="/Test/src/adventure/ChooseYourAdventureFrame.java"/>
 </file>
 </mruList>
 </workbench>
