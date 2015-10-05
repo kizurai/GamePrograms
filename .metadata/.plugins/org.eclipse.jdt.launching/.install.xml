@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <dirs>
-<<<<<<< HEAD
-<entry loc="/home/sophy/Downloads/jre1.8.0_60" stamp="1438716598000"/>
-<entry loc="C:\eclipse\jre" stamp="1353226867015"/>
-<entry loc="/usr/lib/jvm/java-7-openjdk-amd64" stamp="1443436625000"/>
-<entry loc="/usr" stamp="1443406660000"/>
-<entry loc="/usr/lib/jvm/java-6-openjdk-amd64" stamp="1443585739000"/>
-=======
-<entry loc="/usr/lib/jvm/java-7-openjdk-amd64" stamp="1439238723000"/>
->>>>>>> parent of 8b3a1f1... Working on Textbased Adventure
+<entry loc="/usr/lib/jvm/java-7-openjdk-amd64" stamp="1443604247000"/>
 </dirs>

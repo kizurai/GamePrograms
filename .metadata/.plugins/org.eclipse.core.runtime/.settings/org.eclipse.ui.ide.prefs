@@ -1,13 +1,11 @@
-#Sat Oct 03 01:59:41 PDT 2015
-eclipse.preferences.version=1
-<<<<<<< HEAD
-TASKS_FILTERS_MIGRATE=true
-=======
-platformState=1439239009717
-quickStart=false
->>>>>>> parent of 8b3a1f1... Working on Textbased Adventure
-tipsAndTricks=true
-platformState=1326997222594
+=\=\=\=\=\=\=
+<<<<<<<=HEAD
+>>>>>>>=parent of 8b3a1f1... Working on Textbased Adventure
 EXIT_PROMPT_ON_CLOSE_LAST_WINDOW=false
-quickStart=false
 PROBLEMS_FILTERS_MIGRATE=true
+SWITCH_PERSPECTIVE_ON_PROJECT_CREATION=never
+TASKS_FILTERS_MIGRATE=true
+eclipse.preferences.version=1
+platformState=1443585875650
+quickStart=false
+tipsAndTricks=true
