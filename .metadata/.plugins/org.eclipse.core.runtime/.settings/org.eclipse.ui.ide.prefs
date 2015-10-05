@@ -1,6 +1,11 @@
 #Sat Oct 03 01:59:41 PDT 2015
 eclipse.preferences.version=1
+<<<<<<< HEAD
 TASKS_FILTERS_MIGRATE=true
+=======
+platformState=1439239009717
+quickStart=false
+>>>>>>> parent of 8b3a1f1... Working on Textbased Adventure
 tipsAndTricks=true
 platformState=1326997222594
 EXIT_PROMPT_ON_CLOSE_LAST_WINDOW=false

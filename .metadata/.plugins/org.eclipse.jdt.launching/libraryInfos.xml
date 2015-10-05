@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <libraryInfos>
+<<<<<<< HEAD
 <libraryInfo home="/home/sophy/Downloads/jre1.8.0_60" version="1.8.0_60">
 <bootpath>
 <entry path="/home/sophy/Downloads/jre1.8.0_60/lib/resources.jar"/>
@@ -37,6 +38,8 @@
 <entry path="C:\eclipse\jre\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+=======
+>>>>>>> parent of 8b3a1f1... Working on Textbased Adventure
 <libraryInfo home="/usr/lib/jvm/java-7-openjdk-amd64" version="1.7.0_79">
 <bootpath>
 <entry path="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar"/>
@@ -57,6 +60,7 @@
 <entry path="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+<<<<<<< HEAD
 <libraryInfo home="/usr" version="1.6.0_36">
 <bootpath>
 <entry path="/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/resources.jar"/>
@@ -119,6 +123,8 @@
 <entry path="C:\eclipse\jre\jre\lib\endorsed"/>
 </endorsedDirs>
 </libraryInfo>
+=======
+>>>>>>> parent of 8b3a1f1... Working on Textbased Adventure
 <libraryInfo home="/usr/lib/jvm/java-7-openjdk-amd64/jre" version="1.7.0_79">
 <bootpath>
 <entry path="/usr/lib/jvm/java-7-openjdk-amd64/jre/lib/resources.jar"/>
