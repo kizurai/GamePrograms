@@ -1,7 +1,37 @@
--Chapter 1-
-Test for the chapter. I'll do Saint for now and see how it goes.
-Checking newlines and if they translate in. 
--Chapter 2-
-checking the second chapter.
+-Character Intro-
 
-boo.
+You will begin as a young adolescent.
+A sparkling new life that has yet to step out into the world. You are but a simple being that walks among the land like any other. You will make some choices in life that may shape who you become in the future and may open or close opportunities. Like any other being, sometimes, the path you take might make you notorious; whether good or bad is really for you to decide.
+
+But, before we can even begin your story please tell me about yourself:
+-END-
+-1-
+Test for the chapter. I'll do Saint for now and see how it goes.
+Checking newlines and if they translate in.
+-CHOICE-
+0|Stay in bed|0|-2|0|0|0|5
+1|Head out and check out the sound|0|1|0|0|0|2
+-END-
+-2-
+You decide to look into what made the noise; treading carefully past the old floorboards so as to not make a sound. The door makes a tiny screech as you lightly push it open; the sound sending your heart beating as you quickly look back to make sure you didn't wake anyone. You slide between the small crack in the door and find yourself standing in the hallway.
+You feel the chill of the night and possibly the chill from your nerves. If you get caught you will be in deep trouble.
+
+You hear a sound of footsteps again, closer this time.
+-CHOICE-
+0|Head towards the sound|0|0|0|0|0|3
+1|Head back to your holdings and sleep|0|-1|0|0|0|5
+-END-
+-3-
+The sound is getting closer now, whoever broke in is just a few steps away from you. You walk forward, sticking to the wall until you hit the edge of the wall.
+Just when you turn your head to look around the corner you bump into someone.
+You're both startled, obviously meeting someone in the middle of the night was the last thing either of you expected. After flinging your limbs about in shock you take a better look at the intruder.
+His ears pointed upward, his eyes were sharp, pupils dialated and his clothes were like nothing you've seen before.
+You gasp in shock at the realization, this was a demon!
+
+He looks at you and smirks as if he noticed your realization.
+"Hey." He says with a voice with not a hint of a whisper. He takes a few steps toward you and you're too frozen on the spot. "You wouldn't happen to know a 'Condor' would you?" He puts a hand on his hips and another supports his chin; he looks at you expectantly.
+-CHOICE-
+0|"I don't know a 'Condor'!"|
+1|"Begone Demon!"|
+2|"Y-you shouldn't be here."|
+-END-

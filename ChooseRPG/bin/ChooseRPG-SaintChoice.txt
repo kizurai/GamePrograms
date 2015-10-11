@@ -1,0 +1,29 @@
+Action|empathy|courage|benevolent|altruistic|tranquil|section
+1|Stay in bed|0|-2|0|0|0|5
+1|Head out and check out the sound|0|1|0|0|0|2
+2|Head towards the sound|0|0|0|0|0|3
+2|Head back to your holdings and sleep|0|-1|0|0|0|5
+3|"I don't know a 'Condor'!"|
+3|"Begone Demon!"|
+3|"Y-you shouldn't be here."|
+
+-5-
+You decide to stay in bed like the good Saint that you are. You're sure that whatever made that noise was probably a bird or the wind against a window.
+You slowly drift off to sleep and you look forward, as you always do, to a brand new day.
+
+-2-
+You decide to look into what made the noise; treading carefully past the old floorboards so as to not make a sound. The door makes a tiny screech as you lightly push it open; the sound sending your heart beating as you quickly look back to make sure you didn't wake anyone. You slide between the small crack in the door and find yourself standing in the hallway.
+You feel the chill of the night and possibly the chill from your nerves. If you get caught you will be in deep trouble.
+
+You hear a sound of footsteps again, closer this time.
+
+-3-
+The sound is getting closer now, whoever broke in is just a few steps away from you. You walk forward, sticking to the wall until you hit the edge of the wall.
+Just when you turn your head to look around the corner you bump into someone.
+You're both startled, obviously meeting someone in the middle of the night was the last thing either of you expected. After flinging your limbs about in shock you take a better look at the intruder.
+His ears pointed upward, his eyes were sharp, pupils dialated and his clothes were like nothing you've seen before.
+You gasp in shock at the realization, this was a demon!
+
+He looks at you and smirks as if he noticed your realization.
+"Hey." He says with a voice with not a hint of a whisper. He takes a few steps toward you and you're too frozen on the spot. "You wouldn't happen to know a 'Condor' would you?" He puts a hand on his hips and another supports his chin; he looks at you expectantly.
+

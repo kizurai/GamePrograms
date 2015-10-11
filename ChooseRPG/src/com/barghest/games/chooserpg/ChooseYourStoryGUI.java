@@ -6,6 +6,7 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -49,6 +50,7 @@ public class ChooseYourStoryGUI extends JFrame implements ActionListener{
 	private JButton MenuButton;
 	
 	//introduction stuff
+	private Boolean newchara = false;
 	private Box introBoxes[];
 	private JPanel characterPanel;
 	private JTextArea introText;
@@ -90,6 +92,7 @@ public class ChooseYourStoryGUI extends JFrame implements ActionListener{
 			System.out.println("Save Game");
 		} else if (src == newGame){
 			System.out.println("New Game");
+			newchara = true;
 			startNewGame();
 		} else if (src == MenuButton) {
 			if (menuPanel.isVisible()) {
@@ -110,8 +113,10 @@ public class ChooseYourStoryGUI extends JFrame implements ActionListener{
 	}
 
 	private void startNewGame() {
-		menuPanel.setVisible(false);
-
+		if (!newchara && menuPanel.isVisible()) {
+			menuPanel.setVisible(false);
+		}
+		
 		newCharacterPanel = new JPanel(new BorderLayout());
 		main.add(newCharacterPanel,BorderLayout.CENTER);
 		
@@ -176,13 +181,13 @@ public class ChooseYourStoryGUI extends JFrame implements ActionListener{
 		startStoryButton = new JButton("Start your story");
 		
 		addButtons(characterPanel, startStoryButton, enterDim, 8, BorderLayout.SOUTH, introBoxes);
-
-		introText.setText("\nYou will begin as a young adolescent.\n" +
-				"A sparkling new life that has yet to step out into the world. " +
-				"You are but a simple being that walks among the land like any other. " +
-				"You will make some choices in life that may shape who you become in the future and may open or close opportunities. " +
-				"Like any other being, sometimes, the path you take might make you notorious; whether good or bad is really for you to decide. " +
-				"\n\nBut, before we can even begin your story please tell me about yourself: ");
+		try {
+			plot = Game.loadStory(testRace, "Character Intro");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		introText.setText(plot);
 	}
 	
 	private void start(){
@@ -215,7 +220,12 @@ public class ChooseYourStoryGUI extends JFrame implements ActionListener{
 			choiceGroup.add(b);
 		}
 		storyPanel.setVisible(true);
-		plot = Game.loadStory(testRace, 1);
+		try {
+			plot = Game.loadStory(testRace, "1");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		storyTextArea.setText(plot);
 		update();
 	}
