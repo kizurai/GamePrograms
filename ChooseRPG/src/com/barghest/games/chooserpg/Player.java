@@ -1,16 +1,16 @@
 package com.barghest.games.chooserpg;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Player {
 	
 	private String name;
 	private String gender;
 	private String race;
+	private String job;
 	
-	private int altruistic;
-	private int benevolent;
-	private int courage;
-	private int empathy;
-	private int tranquil;
+	private Map<String, Integer> personality = new HashMap<String, Integer>();
 	
 	public Player(String name, int gender, int race) {
 		this.name = name;
@@ -36,25 +36,35 @@ public class Player {
 			temprace = "Half Demon";
 		}
 		this.race = temprace;
+		this.job = "None";
+		
+		this.personality.put("altruistic", 0);
+		this.personality.put("benevolent", 0);
+		this.personality.put("courage", 0);
+		this.personality.put("empathy", 0);
+		this.personality.put("tranquil", 0);
 	}
 	
-	public void changePersonality(String a, String b, String c, String e, String t) {
-		this.empathy += Integer.parseInt(e);
-		this.courage += Integer.parseInt(c);
-		this.benevolent += Integer.parseInt(b);
-		this.altruistic += Integer.parseInt(a);
-		this.tranquil += Integer.parseInt(t);
+	public void changeJob(String newjob) {
+		this.job = newjob;
+	}
+	
+	public void changePersonality(String key, int value) {
+		this.personality.put(key, this.personality.get(key) + value);
 	}
 	public int calcPersonality() {
-		int personality = empathy + (benevolent*tranquil) + (altruistic*(courage/2));
+		int personality = this.personality.get("empathy") + 
+				(this.personality.get("benevolent")*this.personality.get("tranquil")) + 
+				(this.personality.get("altruistic")*(this.personality.get("courage")/2));
 		return personality;
 	}
 	
 	public String myPersonality() {
+		int calculated = calcPersonality();
 		String behaviour = "Neutral";
-		if (calcPersonality() > 0) {
+		if (calculated > 0) {
 			behaviour = "Good";
-		} else if (calcPersonality() < 0) {
+		} else if (calculated < 0) {
 			behaviour = "Evil";
 		}
 		return behaviour;
@@ -70,5 +80,9 @@ public class Player {
 	
 	public String myRace() {
 		return this.race;
+	}
+	
+	public String myJob() {
+		return this.job;
 	}
 }

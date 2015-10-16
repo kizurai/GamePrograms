@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -12,6 +14,7 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -28,9 +31,15 @@ public class ChooseYourStoryCMD extends JFrame implements ActionListener {
 	private Player player;
 	private Game game;
 	
+	/* Init */
 	private JPanel main;
 	private JTextArea storyTextArea;
 	private JTextField typeField;
+	/* Character Window */
+	private JFrame charWindow;
+	private JLabel nameLabel;
+	private JLabel genraceLabel;
+	private JLabel jobLabel;
 	
 	private static final Set<String> COMMANDS = new HashSet<String>
 	(Arrays.asList(new String[] {"STATS"}));
@@ -53,6 +62,7 @@ public class ChooseYourStoryCMD extends JFrame implements ActionListener {
 			try {
 				update(Game.loadStory(player.myRace(), "Main Intro"));
 			} catch (FileNotFoundException e) {
+				e.printStackTrace();
 				update("My apologies, the story for this race type has yet to finish\n" +
 						"Please choose another race to begin the game.");
 				intro();
@@ -104,12 +114,14 @@ public class ChooseYourStoryCMD extends JFrame implements ActionListener {
 		    		player = new Player(tempname, tempgender, temprace);
 		    		update("Congratulations " + player.myName() +
 		    				"\nYou have set yourself as a " + player.myGender() + " " +
-		    				player.myRace() + "\nYou will be starting your story now.");
+		    				player.myRace() + "\nYou will be starting your story now.\n\n\n");
+		    		characterWindow();
 		    		end = true;
 		    	} else {
 		    		update("I'm sorry, that's the wrong input.");
 		    	}
 			} catch (Exception e) {
+				e.printStackTrace();
 				update("I'm sorry, that's the wrong input.\nPlease try again.");
 			}
 			typeField.setText("");
@@ -140,12 +152,26 @@ public class ChooseYourStoryCMD extends JFrame implements ActionListener {
 	public Boolean checkCommand(String text) {
 		if (COMMANDS.contains(text.toUpperCase())) {
 			for (int x=0; x < COMMANDS.size(); x++) {
-				
 			}
 			return true;
 		} else {
 			return false;
 		}
+	}
+	
+	public void characterWindow() {
+		charWindow = new JFrame("Character Info");
+		charWindow.setSize(new Dimension(300, 600));
+		JPanel panel = new JPanel(new BorderLayout());
+		nameLabel = new JLabel("Name: " + player.myName());
+		genraceLabel = new JLabel(player.myGender() + " " + player.myRace());
+		jobLabel = new JLabel("Job:" + player.myJob());
+		panel.add(nameLabel, BorderLayout.PAGE_START);
+		panel.add(genraceLabel, BorderLayout.CENTER);
+		panel.add(jobLabel, BorderLayout.CENTER);
+		panel.setVisible(true);
+		charWindow.getContentPane().add(BorderLayout.CENTER, panel);
+		charWindow.setVisible(true);
 	}
 	
 	public void init() {
@@ -159,7 +185,7 @@ public class ChooseYourStoryCMD extends JFrame implements ActionListener {
 		main = new JPanel(new BorderLayout());
 		setContentPane(main);
 		main.setBorder(new EmptyBorder(5, 5, 5, 5));
-        
+
 		storyTextArea = new JTextArea();
 		storyTextArea.setEditable(false);
 		storyTextArea.setFont(new Font("SansSerif", Font.PLAIN, 14));
@@ -181,9 +207,13 @@ public class ChooseYourStoryCMD extends JFrame implements ActionListener {
         
         main.add(storyScroll, BorderLayout.NORTH);
         main.add(typeField, BorderLayout.SOUTH);
-        setVisible(true);
         
+        this.addWindowFocusListener(new WindowAdapter() {
+            public void windowGainedFocus(WindowEvent e) {
+                typeField.requestFocusInWindow();
+            }});
         pack();
+        setVisible(true);
         intro();
 	}
 	

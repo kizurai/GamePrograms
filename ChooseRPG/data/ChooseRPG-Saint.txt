@@ -1,12 +1,3 @@
--Game Intro-
-
--Character Intro-
-
-You will begin as a young adolescent.
-A sparkling new life that has yet to step out into the world. You are but a simple being that walks among the land like any other. You will make some choices in life that may shape who you become in the future and may open or close opportunities. Like any other being, sometimes, the path you take might make you notorious; whether good or bad is really for you to decide.
-
-But, before we can even begin your story please tell me about yourself:
--END-
 -Main Intro-
 Since childhood you were always told the teachings of the great leader of Saints, the Seraph. He was the one closest to our creators and he was the chosen one to pass on the words of the creators; his words were what commanded the Saints and his words were law.
 
@@ -14,27 +5,31 @@ Every once in a auspicious day other Saints of similar age would sit outside and
 
 Only the Archangels, Powers and Virtues are allowed to leave the Ascension as they are given the sacred mission of clensing the world of impurities. The Archangels and Powers are the ones that protect us, it is the greatest honour to be called a Power, and even more so when promoted to Archangel. The Virtues travel the world and heal the weak and deserving; they also spread the word of goodwill and the greatness of our Creator and the Saints.
 -CHOICE-
-I've always wanted to be a Virtue|0|0|2|0|0|Virtue
-Becoming a Power was my calling|0|2|0|0|0|Power
--END-
+I've always wanted to be a Virtue|Virtue|true Virtue|benevolent 2
+Becoming a Power was my calling|Power|true Power|courage 2
+-Main Intro END-
 -Virtue-
 My dream has always been to be a Virtue, to spread the word of good and to heal the weak and poor. 
 My friends and I would study hard and practice our magic in order to earn the praises of the Cherubim. The one thing we were warned of however, was to never heal any Demons no matter how hurt they were. Demons were manipulative and evil and they are the ones that taint our world.
--END-
+-NEXT-
+Begin
+-Virtue END-
 -Power-
 My dream has always been to be a Power, to serve our Creator and to protect the Saints from the outside world.
 My friends and I would pretend to be Powers, donning makeshift guardian armour and fighting imaginary Demons. Demons were what were the cause of our worlds impurities; they taint life and destroy all that is good.
--END-
--1-
-My life was typical of Saints that grew up in the Ascension.
+-NEXT-
+Begin
+-Power END-
+-Begin-
+I believed that my life was typical of Saints that grew up in the Ascension.
 
 One night I awoken, the moon was still high in the sky and the air was silent. I wasn't sure why I had woken up but I wasn't able to fall back asleep; I couldn't decide if I should get up and grab a drink or attempt to sleep.
 
-Amidst my ponderings I heard a creak of wood flooring. Someone might be outside in the hallways.
+Amidst my ponderings I heard the faint squeak of wood flooring off in the distance. Someone might be outside in the hallways.
 Should I:
 -CHOICE-
-Stay in bed|0|-2|0|0|0|5
-Head out and check out the sound|0|1|0|0|0|2
+Stay in bed|New Day|false|courage -2
+Head out and check out the sound|2|false|courage 1
 -END-
 -2-
 You decide to look into what made the noise; treading carefully past the old floorboards so as to not make a sound. The door makes a tiny screech as you lightly push it open; the sound sending your heart beating as you quickly look back to make sure you didn't wake anyone. You slide between the small crack in the door and find yourself standing in the hallway.
@@ -42,9 +37,9 @@ You feel the chill of the night and possibly the chill from your nerves. If you 
 
 You hear a sound of footsteps again, closer this time.
 -CHOICE-
-Head towards the sound|0|0|0|0|0|3
-Head back to your holdings and sleep|0|-1|0|0|0|5
--END-
+Head towards the sound|3|false|none
+Head back to your holdings and sleep|5|false|courage -1
+-2 END-
 -3-
 The sound is getting closer now, whoever broke in is just a few steps away from you. You walk forward, sticking to the wall until you hit the edge of the wall.
 Just when you turn your head to look around the corner you bump into someone.
@@ -58,4 +53,6 @@ He looks at you and smirks as if he noticed your realization.
 "I don't know a 'Condor'!"|
 "Begone Demon!"|
 "Y-you shouldn't be here."|
--END-
+-3 END-
+-New Day-
+-New Day END-
