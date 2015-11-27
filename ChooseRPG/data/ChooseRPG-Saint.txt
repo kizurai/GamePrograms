@@ -5,8 +5,7 @@ Every once in a auspicious day other Saints of similar age would sit outside and
 
 Only the Archangels, Powers and Virtues are allowed to leave the Ascension as they are given the sacred mission of clensing the world of impurities. The Archangels and Powers are the ones that protect us, it is the greatest honour to be called a Power, and even more so when promoted to Archangel. The Virtues travel the world and heal the weak and deserving; they also spread the word of goodwill and the greatness of our Creator and the Saints.
 -CHOICE-
-I've always wanted to be a Virtue|Virtue|true Virtue|benevolent 2
-Becoming a Power was my calling|Power|true Power|courage 2
+Saint1
 -Main Intro END-
 -Virtue-
 My dream has always been to be a Virtue, to spread the word of good and to heal the weak and poor. 
@@ -28,8 +27,7 @@ One night I awoken, the moon was still high in the sky and the air was silent. I
 Amidst my ponderings I heard the faint squeak of wood flooring off in the distance. Someone might be outside in the hallways.
 Should I:
 -CHOICE-
-Stay in bed|New Day|false|courage -2
-Head out and check out the sound|2|false|courage 1
+Saint2
 -END-
 -2-
 You decide to look into what made the noise; treading carefully past the old floorboards so as to not make a sound. The door makes a tiny screech as you lightly push it open; the sound sending your heart beating as you quickly look back to make sure you didn't wake anyone. You slide between the small crack in the door and find yourself standing in the hallway.
@@ -37,8 +35,7 @@ You feel the chill of the night and possibly the chill from your nerves. If you 
 
 You hear a sound of footsteps again, closer this time.
 -CHOICE-
-Head towards the sound|3|false|none
-Head back to your holdings and sleep|5|false|courage -1
+Saint3
 -2 END-
 -3-
 The sound is getting closer now, whoever broke in is just a few steps away from you. You walk forward, sticking to the wall until you hit the edge of the wall.
@@ -50,9 +47,7 @@ You gasp in shock at the realization, this was a demon!
 He looks at you and smirks as if he noticed your realization.
 "Hey." He says with a voice with not a hint of a whisper. He takes a few steps toward you and you're too frozen on the spot. "You wouldn't happen to know a 'Condor' would you?" He puts a hand on his hips and another supports his chin; he looks at you expectantly.
 -CHOICE-
-"I don't know a 'Condor'!"|
-"Begone Demon!"|
-"Y-you shouldn't be here."|
+Saint4
 -3 END-
--New Day-
--New Day END-
+-NewDay-
+-NewDay END-
