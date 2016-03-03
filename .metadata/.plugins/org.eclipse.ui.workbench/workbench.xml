@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workbench progressCount="17" version="2.0">
 <workbenchAdvisor/>
-<window height="726" width="1221" x="79" y="27">
+<window height="726" maximized="true" width="1221" x="79" y="459">
 <fastViewData fastViewLocation="1024"/>
 <perspectiveBar>
 <itemSize x="160"/>
@@ -40,13 +40,13 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ChooseRPG/src/com/barghest/games/chooserpg/Game.java"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1591" selectionTopPixel="199"/>
 </editor>
-<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/home/sophy/GamePrograms/ChooseRPG/src/com/barghest/games/chooserpg/Player.java" title="Player.java" tooltip="ChooseRPG/src/com/barghest/games/chooserpg/Player.java" workbook="DefaultEditorWorkbook">
+<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Player.java" partName="Player.java" path="/home/sophy/GamePrograms/ChooseRPG/src/com/barghest/games/chooserpg/Player.java" title="Player.java" tooltip="ChooseRPG/src/com/barghest/games/chooserpg/Player.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ChooseRPG/src/com/barghest/games/chooserpg/Player.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1014" selectionTopPixel="1000"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="1014" selectionTopPixel="406"/>
 </editor>
-<editor activePart="true" focus="true" id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChooseYourStoryCMD.java" partName="ChooseYourStoryCMD.java" path="/home/sophy/GamePrograms/ChooseRPG/src/com/barghest/games/chooserpg/ChooseYourStoryCMD.java" title="ChooseYourStoryCMD.java" tooltip="ChooseRPG/src/com/barghest/games/chooserpg/ChooseYourStoryCMD.java" workbook="DefaultEditorWorkbook">
+<editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="ChooseYourStoryCMD.java" partName="ChooseYourStoryCMD.java" path="/home/sophy/GamePrograms/ChooseRPG/src/com/barghest/games/chooserpg/ChooseYourStoryCMD.java" title="ChooseYourStoryCMD.java" tooltip="ChooseRPG/src/com/barghest/games/chooserpg/ChooseYourStoryCMD.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ChooseRPG/src/com/barghest/games/chooserpg/ChooseYourStoryCMD.java"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="4938" selectionTopPixel="2021"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="3791" selectionTopPixel="2357"/>
 </editor>
 <editor id="org.eclipse.jdt.ui.CompilationUnitEditor" name="Choice.java" partName="Choice.java" path="/home/sophy/GamePrograms/ChooseRPG/src/com/barghest/games/chooserpg/Choice.java" title="Choice.java" tooltip="ChooseRPG/src/com/barghest/games/chooserpg/Choice.java" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/ChooseRPG/src/com/barghest/games/chooserpg/Choice.java"/>
@@ -158,19 +158,9 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ChooseRPG/src/com/barghest/games/chooserpg/Choice.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ChooseRPG/src/com/barghest/games/chooserpg/Player.java"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ChooseRPG/src/com/barghest/games/chooserpg/Game.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ChooseRPG/src/com/barghest/games/chooserpg/Choice.java"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.eclipse.jdt.ui.CompilationUnitEditor" path="/ChooseRPG/src/com/barghest/games/chooserpg/Player.java"/>
 </editors>
-<item historyLabel="ChooseYourStoryCMD.java" index="0">
-<position info="not_deleted" x="4313" y="0"/>
-</item>
-<item historyLabel="Choice.java" index="1">
-<position/>
-</item>
-<item historyLabel="ChooseYourStoryCMD.java" index="0">
-<position info="not_deleted" x="4313" y="0"/>
-</item>
-<item historyLabel="Choice.java" index="1">
-<position/>
-</item>
 <item historyLabel="Choice.java" index="1">
 <position info="not_deleted" x="216" y="0"/>
 </item>
@@ -306,8 +296,20 @@
 <item historyLabel="ChooseYourStoryCMD.java" index="0">
 <position info="not_deleted" x="4767" y="0"/>
 </item>
-<item active="true" historyLabel="ChooseYourStoryCMD.java" index="0">
+<item historyLabel="ChooseYourStoryCMD.java" index="0">
 <position info="not_deleted" x="4787" y="0"/>
+</item>
+<item historyLabel="Choice.java" index="4">
+<position info="not_deleted" x="310" y="0"/>
+</item>
+<item historyLabel="Player.java" index="5">
+<position info="not_deleted" x="1014" y="0"/>
+</item>
+<item historyLabel="Choice.java" index="4">
+<position info="not_deleted" x="310" y="0"/>
+</item>
+<item active="true" historyLabel="Player.java" index="5">
+<position info="not_deleted" x="1014" y="0"/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
