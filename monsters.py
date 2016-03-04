@@ -26,10 +26,13 @@ class BeastSlime(Monster):
 	def __init__(self):
 		Monster.__init__(self, "Beast Slime", 1, "slime", 12, 7, 4, 2, 6)
 
+
+monster_fusionlist = ["SlimeBeast"]
+monster_resultlist = [BeastSlime()]
 class Fusion:
-	def __init__(self, rtype, fusionlist):
-		self.type = rtype
+	def __init__(self, fusionlist, resultlist):
 		self.fusionlist = fusionlist
+		self.resultlist = resultlist
 	def checklist(self, player, monster1, monster2):
 		for monster in fusionlist.keys():
 			if monster2 == monster:
@@ -43,9 +46,4 @@ class Fusion:
 		player.removemonster(mon1)
 		player.removemonster(mon2)
 		player.addmonster(result)
-			
 
-class SlimeFusion(Fusion):
-	def __init__(self):
-		self.dict = { "Werewolf" : BeastSlime(), }
-		Fusion.__init__(self, "slime", self.dict)

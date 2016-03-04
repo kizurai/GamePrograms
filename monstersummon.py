@@ -39,6 +39,10 @@ class Player:
 			print "%d|%s\t|%d\t|%d\t|" % (count, monster.name, monster.lvl, monster.hp)
 			count = count + 1
 		print "--------------------------------"
+	def team_isalive(self):
+		for monster in self.team:
+			if not monster.is_alive:
+				return false
 	def move(self):
 		for place in AREALIST:
 			print place
@@ -68,6 +72,13 @@ CMDS = {
 	'go' : Player.move,
 	}
 
+def checkint(num):
+	try:
+		int(num)
+		return True
+	except ValueError:
+		return False
+
 #Main Menu
 def menu(player):
 	commandFound = False
@@ -81,10 +92,13 @@ def menu(player):
 			CMDS[c](player)
 			commandFound = True
 	if not commandFound:
-		if place.checknum(int(command)):
-			place.chooseoption(player, command)
+		if checkint(command):
+			if place.checknum(int(command)):
+				place.chooseoption(player, command)
+			else:
+				print "%s is not an option." % command
 		else:
-			print "%s is not an option." % command
+				print "%s is not an option." % command
 	#time.sleep(1)
 
 #main function

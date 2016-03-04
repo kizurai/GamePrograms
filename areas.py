@@ -56,17 +56,37 @@ class Forest(Area):
 		Area.__init__(self, "forest", 1, self.choices)
 	def chooseoption(self, player, option):
 		if option == "1":
-			self.explore()
-	def explore(self):
+			self.explore(player)
+	def explore(self, player):
 		roll = random.randint(0, 100)
 		if roll >= 90:
 			self.find_item()
 		elif roll > 50 and roll < 90:
-			self.random_battle()
+			self.random_battle(player)
 		else:
 			print ("You found nothing.")
-	def random_battle(self):
+	def random_battle(self, player):
 		print "Found a monster."
+		roll=random.randint(0, 100)
+		if roll >= 70:
+			monster = monsters.Werewolf()
+		else:
+			monster = monsters.Slime()
+		Battle(player, monster)
 	def find_item(self):
 		print "Found an item."
+
+def Battle(player, enemy):
+	print "Starting battle"
+	print "You encountered a %s!" % enemy.name
+	print "\t\t%s\t\t" % enemy.name
+	print "------------------------------------
+	player.seeteam()
+	
+	while (enemy.is_alive() or player.team_isalive()):
+		print "%s attacks %s by %d points!" % (enemy.name, player.team[0].name, enemy.atk)
+		player.team[0].hp = player.team[0].hp - enemy.atk
+
+	if enemy.is_alive:
+		print "You have died."
 
